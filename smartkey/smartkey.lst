@@ -1,0 +1,2405 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Sat Dec 21 09:30:06 2019
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	16F685
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	text456,local,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,delta=2
+     6                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     9                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    10                           	psect	maintext,global,class=CODE,delta=2
+    11                           	psect	swtext1,local,class=CONST,delta=2
+    12                           	psect	text457,local,class=CODE,delta=2
+    13                           	psect	text458,local,class=CODE,delta=2
+    14                           	psect	text459,local,class=CODE,delta=2
+    15                           	psect	text460,local,class=CODE,delta=2
+    16                           	psect	text461,local,class=CODE,delta=2
+    17                           	psect	text462,local,class=CODE,delta=2
+    18                           	psect	text463,local,class=CODE,delta=2
+    19                           	psect	text464,local,class=CODE,delta=2
+    20                           	psect	text465,local,class=CODE,delta=2
+    21                           	psect	text466,local,class=CODE,delta=2
+    22                           	psect	text467,local,class=CODE,delta=2
+    23                           	psect	text468,local,class=CODE,delta=2
+    24                           	psect	intentry,global,class=CODE,delta=2
+    25                           	psect	text469,local,class=CODE,delta=2
+    26                           	psect	pa_nodes,global,class=CODE,delta=2
+    27                           	dabs	1,0x19D,1
+    28                           	dabs	1,0x19E,1
+    29                           	dabs	1,0x19E,1
+    30                           	dabs	1,0x19E,1
+    31                           	dabs	1,0x18C,1
+    32                           	dabs	1,0x19E,1
+    33                           	dabs	1,0x19E,1
+    34                           	dabs	1,0x19E,1
+    35                           	dabs	1,0x19E,1
+    36                           	dabs	1,0x19D,1
+    37                           	dabs	1,0x19D,1
+    38                           	dabs	1,0x19D,1
+    39                           	dabs	1,0x19D,1
+    40                           	dabs	1,0x19D,1
+    41                           	dabs	1,0x18C,1
+    42                           	dabs	1,0x7E,2
+    43  000A                     
+    44                           	psect	text456
+    45  0000                     __ptext456:	
+    46  019D                     _PSTRCON	set	413	;_PSTRCON
+    47  019E                     _SRCON	set	414	;_SRCON
+    48  0CF5                     _C1SEN	set	3317	;_C1SEN
+    49  0CF4                     _C2REN	set	3316	;_C2REN
+    50  0C67                     _EEPGD	set	3175	;_EEPGD
+    51  0CF2                     _PULSR	set	3314	;_PULSR
+    52  0CF3                     _PULSS	set	3315	;_PULSS
+    53  0CF6                     _SR0	set	3318	;_SR0
+    54  0CF7                     _SR1	set	3319	;_SR1
+    55  0CE8                     _STRA	set	3304	;_STRA
+    56  0CE9                     _STRB	set	3305	;_STRB
+    57  0CEA                     _STRC	set	3306	;_STRC
+    58  0CEB                     _STRD	set	3307	;_STRD
+    59  0CEC                     _STRSYNC	set	3308	;_STRSYNC
+    60  0C62                     _WREN	set	3170	;_WREN
+    61  000B                     _INTCON	set	11
+    62  000C                     _PIR1	set	12
+    63  0005                     _PORTA	set	5
+    64  0007                     _PORTC	set	7
+    65  0010                     _T1CON	set	16
+    66  0012                     _T2CON	set	18
+    67  000F                     _TMR1H	set	15
+    68  000E                     _TMR1L	set	14
+    69  0011                     _TMR2	set	17
+    70  0067                     _EEIF	set	103
+    71  005F                     _GIE	set	95
+    72  005C                     _INTE	set	92
+    73  0059                     _INTF	set	89
+    74  005B                     _PAIE	set	91
+    75  0058                     _PAIF	set	88
+    76  005E                     _PEIE	set	94
+    77  0028                     _RA0	set	40
+    78  002C                     _RA4	set	44
+    79  002E                     _RA6	set	46
+    80  002F                     _RA7	set	47
+    81  0039                     _RC1	set	57
+    82  003A                     _RC2	set	58
+    83  003C                     _RC4	set	60
+    84  0060                     _TMR1IF	set	96
+    85  0080                     _TMR1ON	set	128
+    86  0061                     _TMR2IF	set	97
+    87  0092                     _TMR2ON	set	146
+    88  009B                     _EEADR	set	155
+    89  009C                     _EECON1	set	156
+    90  009A                     _EEDAT	set	154
+    91  008F                     _OSCCON	set	143
+    92  008C                     _PIE1	set	140
+    93  0092                     _PR2	set	146
+    94  0085                     _TRISA	set	133
+    95  0087                     _TRISC	set	135
+    96  0095                     _WPUA	set	149
+    97  0088                     _WPUC	set	136
+    98  047A                     _HTS	set	1146
+    99  040E                     _INTEDG	set	1038
+   100  04B6                     _IOCA6	set	1206
+   101  04E0                     _RD	set	1248
+   102  0460                     _TMR1IE	set	1120
+   103  0461                     _TMR2IE	set	1121
+   104  04E8                     _WR	set	1256
+   105                           
+   106                           	psect	cinit
+   107  02BB                     start_initialization:	
+   108                           
+   109                           ; Clear objects allocated to COMMON
+   110  02BB  01F9               	clrf	__pbssCOMMON& (0+127)
+   111  02BC  01FA               	clrf	(__pbssCOMMON+1)& (0+127)
+   112                           
+   113                           ; Clear objects allocated to BANK0
+   114  02BD  01A0               	clrf	__pbssBANK0& (0+127)
+   115  02BE  01A1               	clrf	(__pbssBANK0+1)& (0+127)
+   116  02BF  01A2               	clrf	(__pbssBANK0+2)& (0+127)
+   117  02C0  01A3               	clrf	(__pbssBANK0+3)& (0+127)
+   118  02C1  01A4               	clrf	(__pbssBANK0+4)& (0+127)
+   119  02C2  01A5               	clrf	(__pbssBANK0+5)& (0+127)
+   120  02C3  01A6               	clrf	(__pbssBANK0+6)& (0+127)
+   121  02C4  01A7               	clrf	(__pbssBANK0+7)& (0+127)
+   122  02C5  01A8               	clrf	(__pbssBANK0+8)& (0+127)
+   123  02C6  01A9               	clrf	(__pbssBANK0+9)& (0+127)
+   124  02C7  01AA               	clrf	(__pbssBANK0+10)& (0+127)
+   125  02C8                     end_of_initialization:	
+   126                           ;End of C runtime variable initialization code
+   127                           
+   128  02C8  0183               	clrf	3
+   129  02C9  280B               	ljmp	_main	;jump to C main() function
+   130                           
+   131                           	psect	bssCOMMON
+   132  0079                     __pbssCOMMON:	
+   133  0079                     _timeTick:	
+   134  0079                     	ds	2
+   135                           
+   136                           	psect	bssBANK0
+   137  0020                     __pbssBANK0:	
+   138  0020                     _cntTmp:	
+   139  0020                     	ds	2
+   140  0022                     _timeOut:	
+   141  0022                     	ds	2
+   142  0024                     _RegStatus:	
+   143  0024                     	ds	1
+   144  0025                     _cntCyc:	
+   145  0025                     	ds	1
+   146  0026                     _cntOff:	
+   147  0026                     	ds	1
+   148  0027                     _lostDetect:	
+   149  0027                     	ds	1
+   150  0028                     _mode_chek:	
+   151  0028                     	ds	1
+   152  0029                     _mtOldState:	
+   153  0029                     	ds	1
+   154  002A                     _mtState:	
+   155  002A                     	ds	1
+   156                           
+   157                           	psect	cstackCOMMON
+   158  0070                     __pcstackCOMMON:	
+   159  0070                     ?_sys_init:	
+   160  0070                     ?_gpio_init:	
+   161                           ; 0 bytes @ 0x0
+   162                           
+   163  0070                     ?_timer_init:	
+   164                           ; 0 bytes @ 0x0
+   165                           
+   166  0070                     ?_int_init:	
+   167                           ; 0 bytes @ 0x0
+   168                           
+   169  0070                     ?_ISR:	
+   170                           ; 0 bytes @ 0x0
+   171                           
+   172  0070                     ??_ISR:	
+   173                           ; 0 bytes @ 0x0
+   174                           
+   175  0070                     ?_beepOff:	
+   176                           ; 0 bytes @ 0x0
+   177                           
+   178  0070                     ?_beepOn:	
+   179                           ; 0 bytes @ 0x0
+   180                           
+   181  0070                     ?_main:	
+   182                           ; 0 bytes @ 0x0
+   183                           
+   184  0070                     ?_READ_EEPROM:	
+   185                           ; 0 bytes @ 0x0
+   186                           
+   187                           
+   188                           ; 1 bytes @ 0x0
+   189  0070                     	ds	2
+   190  0072                     ??_sys_init:	
+   191  0072                     ??_gpio_init:	
+   192                           ; 0 bytes @ 0x2
+   193                           
+   194  0072                     ??_timer_init:	
+   195                           ; 0 bytes @ 0x2
+   196                           
+   197  0072                     ??_int_init:	
+   198                           ; 0 bytes @ 0x2
+   199                           
+   200  0072                     ?_delay_x10ms:	
+   201                           ; 0 bytes @ 0x2
+   202                           
+   203  0072                     ??_beepOff:	
+   204                           ; 0 bytes @ 0x2
+   205                           
+   206  0072                     ??_beepOn:	
+   207                           ; 0 bytes @ 0x2
+   208                           
+   209  0072                     ??_READ_EEPROM:	
+   210                           ; 0 bytes @ 0x2
+   211                           
+   212  0072                     ?_WRITE_EEPROM:	
+   213                           ; 0 bytes @ 0x2
+   214                           
+   215  0072                     ?_setState:	
+   216                           ; 0 bytes @ 0x2
+   217                           
+   218  0072                     READ_EEPROM@EEAddr:	
+   219                           ; 0 bytes @ 0x2
+   220                           
+   221  0072                     WRITE_EEPROM@EEData:	
+   222                           ; 1 bytes @ 0x2
+   223                           
+   224  0072                     delay_x10ms@t:	
+   225                           ; 1 bytes @ 0x2
+   226                           
+   227  0072                     setState@_tOut:	
+   228                           ; 2 bytes @ 0x2
+   229                           
+   230                           
+   231                           ; 2 bytes @ 0x2
+   232  0072                     	ds	1
+   233  0073                     ??_WRITE_EEPROM:	
+   234  0073                     READ_EEPROM@ReEepromData:	
+   235                           ; 0 bytes @ 0x3
+   236                           
+   237  0073                     WRITE_EEPROM@EEAddr:	
+   238                           ; 1 bytes @ 0x3
+   239                           
+   240                           
+   241                           ; 1 bytes @ 0x3
+   242  0073                     	ds	1
+   243  0074                     ??_delay_x10ms:	
+   244  0074                     ??_setState:	
+   245                           ; 0 bytes @ 0x4
+   246                           
+   247  0074                     setState@stt:	
+   248                           ; 0 bytes @ 0x4
+   249                           
+   250  0074                     delay_x10ms@set:	
+   251                           ; 1 bytes @ 0x4
+   252                           
+   253                           
+   254                           ; 2 bytes @ 0x4
+   255  0074                     	ds	2
+   256  0076                     ?_beep:	
+   257  0076                     beep@rep:	
+   258                           ; 0 bytes @ 0x6
+   259                           
+   260                           
+   261                           ; 1 bytes @ 0x6
+   262  0076                     	ds	1
+   263  0077                     ??_beep:	
+   264  0077                     beep@delay:	
+   265                           ; 0 bytes @ 0x7
+   266                           
+   267                           
+   268                           ; 1 bytes @ 0x7
+   269  0077                     	ds	1
+   270  0078                     main@reAlertOn:	
+   271                           
+   272                           ; 1 bytes @ 0x8
+   273  0078                     	ds	1
+   274                           
+   275                           	psect	cstackBANK0
+   276  002B                     __pcstackBANK0:	
+   277  002B                     ??_main:	
+   278                           
+   279                           ; 0 bytes @ 0x0
+   280  002B                     	ds	3
+   281                           
+   282                           	psect	maintext
+   283  000B                     __pmaintext:	
+   284 ;;Data sizes: Strings 0, constant 0, data 0, bss 13, persistent 0 stack 0
+   285 ;;Auto spaces:   Size  Autos    Used
+   286 ;; COMMON          14      9      11
+   287 ;; BANK0           80      3      14
+   288 ;; BANK1           32      0       0
+   289 ;;
+   290 ;; Pointer list with targets:
+   291 ;;
+   292 ;; Critical Paths under _main in COMMON
+   293 ;;
+   294 ;;   _main->_beep
+   295 ;;   _beep->_delay_x10ms
+   296 ;;
+   297 ;; Critical Paths under _ISR in COMMON
+   298 ;;
+   299 ;;   None.
+   300 ;;
+   301 ;; Critical Paths under _main in BANK0
+   302 ;;
+   303 ;;   None.
+   304 ;;
+   305 ;; Critical Paths under _ISR in BANK0
+   306 ;;
+   307 ;;   None.
+   308 ;;
+   309 ;; Critical Paths under _main in BANK1
+   310 ;;
+   311 ;;   None.
+   312 ;;
+   313 ;; Critical Paths under _ISR in BANK1
+   314 ;;
+   315 ;;   None.
+   316 ;;
+   317 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   318 ;;
+   319 ;;
+   320 ;;Call Graph Tables:
+   321 ;;
+   322 ;; ---------------------------------------------------------------------------------
+   323 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   324 ;; ---------------------------------------------------------------------------------
+   325 ;; (0) _main                                                 4     4      0     380
+   326 ;;                                              8 COMMON     1     1      0
+   327 ;;                                              0 BANK0      3     3      0
+   328 ;;                           _sys_init
+   329 ;;                          _gpio_init
+   330 ;;                         _timer_init
+   331 ;;                           _int_init
+   332 ;;                           _setState
+   333 ;;                       _WRITE_EEPROM
+   334 ;;                        _delay_x10ms
+   335 ;;                        _READ_EEPROM
+   336 ;;                             _beepOn
+   337 ;;                               _beep
+   338 ;;                            _beepOff
+   339 ;; ---------------------------------------------------------------------------------
+   340 ;; (1) _sys_init                                             0     0      0       0
+   341 ;; ---------------------------------------------------------------------------------
+   342 ;; (1) _beep                                                 2     1      1      90
+   343 ;;                                              6 COMMON     2     1      1
+   344 ;;                        _delay_x10ms
+   345 ;; ---------------------------------------------------------------------------------
+   346 ;; (1) _int_init                                             1     1      0       0
+   347 ;; ---------------------------------------------------------------------------------
+   348 ;; (1) _timer_init                                           0     0      0       0
+   349 ;; ---------------------------------------------------------------------------------
+   350 ;; (1) _gpio_init                                            0     0      0       0
+   351 ;; ---------------------------------------------------------------------------------
+   352 ;; (1) _setState                                             3     1      2      44
+   353 ;;                                              2 COMMON     3     1      2
+   354 ;; ---------------------------------------------------------------------------------
+   355 ;; (1) _WRITE_EEPROM                                         2     1      1      44
+   356 ;;                                              2 COMMON     2     1      1
+   357 ;; ---------------------------------------------------------------------------------
+   358 ;; (1) _READ_EEPROM                                          2     2      0      45
+   359 ;;                                              2 COMMON     2     2      0
+   360 ;; ---------------------------------------------------------------------------------
+   361 ;; (1) _beepOn                                               0     0      0       0
+   362 ;; ---------------------------------------------------------------------------------
+   363 ;; (1) _beepOff                                              0     0      0       0
+   364 ;; ---------------------------------------------------------------------------------
+   365 ;; (2) _delay_x10ms                                          4     2      2      46
+   366 ;;                                              2 COMMON     4     2      2
+   367 ;; ---------------------------------------------------------------------------------
+   368 ;; Estimated maximum stack depth 2
+   369 ;; ---------------------------------------------------------------------------------
+   370 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   371 ;; ---------------------------------------------------------------------------------
+   372 ;; (3) _ISR                                                  3     3      0       0
+   373 ;;                                              0 COMMON     2     2      0
+   374 ;; ---------------------------------------------------------------------------------
+   375 ;; Estimated maximum stack depth 3
+   376 ;; ---------------------------------------------------------------------------------
+   377 ;; Call Graph Graphs:
+   378 ;; _main (ROOT)
+   379 ;;   _sys_init
+   380 ;;   _gpio_init
+   381 ;;   _timer_init
+   382 ;;   _int_init
+   383 ;;   _setState
+   384 ;;   _WRITE_EEPROM
+   385 ;;   _delay_x10ms
+   386 ;;   _READ_EEPROM
+   387 ;;   _beepOn
+   388 ;;   _beep
+   389 ;;     _delay_x10ms
+   390 ;;   _beepOff
+   391 ;;
+   392 ;; _ISR (ROOT)
+   393 ;;
+   394 ;; Address spaces:
+   395 ;;Name               Size   Autos  Total    Cost      Usage
+   396 ;;BITCOMMON            E      0       0       0        0.0%
+   397 ;;EEDATA              80      0       0       0        0.0%
+   398 ;;NULL                 0      0       0       0        0.0%
+   399 ;;CODE                 0      0       0       0        0.0%
+   400 ;;COMMON               E      9       B       1       78.6%
+   401 ;;BITSFR0              0      0       0       1        0.0%
+   402 ;;SFR0                 0      0       0       1        0.0%
+   403 ;;BITSFR1              0      0       0       2        0.0%
+   404 ;;SFR1                 0      0       0       2        0.0%
+   405 ;;STACK                0      0       2       2        0.0%
+   406 ;;BITBANK0            50      0       0       3        0.0%
+   407 ;;BANK0               50      3       E       4       17.5%
+   408 ;;BITBANK1            20      0       0       5        0.0%
+   409 ;;BITSFR2              0      0       0       5        0.0%
+   410 ;;SFR2                 0      0       0       5        0.0%
+   411 ;;BANK1               20      0       0       6        0.0%
+   412 ;;ABS                  0      0      19       7        0.0%
+   413 ;;DATA                 0      0      1B       8        0.0%
+   414                           
+   415                           
+   416 ;; *************** function _main *****************
+   417 ;; Defined at:
+   418 ;;		line 219 in file "smartkey.C"
+   419 ;; Parameters:    Size  Location     Type
+   420 ;;		None
+   421 ;; Auto vars:     Size  Location     Type
+   422 ;;  reAlertOn       1    8[COMMON] unsigned char 
+   423 ;; Return value:  Size  Location     Type
+   424 ;;		None               void
+   425 ;; Registers used:
+   426 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   427 ;; Tracked objects:
+   428 ;;		On entry : 17F/0
+   429 ;;		On exit  : 60/0
+   430 ;;		Unchanged: 0/0
+   431 ;; Data sizes:     COMMON   BANK0   BANK1
+   432 ;;      Params:         0       0       0
+   433 ;;      Locals:         1       0       0
+   434 ;;      Temps:          0       3       0
+   435 ;;      Totals:         1       3       0
+   436 ;;Total ram usage:        4 bytes
+   437 ;; Hardware stack levels required when called:    3
+   438 ;; This function calls:
+   439 ;;		_sys_init
+   440 ;;		_gpio_init
+   441 ;;		_timer_init
+   442 ;;		_int_init
+   443 ;;		_setState
+   444 ;;		_WRITE_EEPROM
+   445 ;;		_delay_x10ms
+   446 ;;		_READ_EEPROM
+   447 ;;		_beepOn
+   448 ;;		_beep
+   449 ;;		_beepOff
+   450 ;; This function is called by:
+   451 ;;		Startup code after reset
+   452 ;; This function uses a non-reentrant model
+   453 ;;
+   454  000B                     _main:	
+   455                           
+   456                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   457  000B  3007               	movlw	7	;#
+   458  000C  0099               	movwf	25	;#
+   459                           
+   460                           ;smartkey.C: 226: unsigned char reAlertOn=0;
+   461  000D  01F8               	clrf	main@reAlertOn
+   462  000E  0064               	clrwdt	;#
+   463                           
+   464                           ;smartkey.C: 231: sys_init();
+   465  000F  22F5               	fcall	_sys_init
+   466                           
+   467                           ;smartkey.C: 232: gpio_init();
+   468  0010  22D9               	fcall	_gpio_init
+   469                           
+   470                           ;smartkey.C: 234: timer_init();
+   471  0011  22CA               	fcall	_timer_init
+   472                           
+   473                           ;smartkey.C: 235: int_init();
+   474  0012  225D               	fcall	_int_init
+   475                           
+   476                           ;smartkey.C: 239: _delay((unsigned long)((100)*(4000000/4000.0)));
+   477  0013  3082               	movlw	130
+   478  0014  1283               	bcf	3,5	;RP0=0, select bank0
+   479  0015  00AC               	movwf	??_main+1
+   480  0016  30DD               	movlw	221
+   481  0017  00AB               	movwf	??_main
+   482  0018                     u1487:	
+   483  0018  0BAB               	decfsz	??_main,f
+   484  0019  2818               	goto	u1487
+   485  001A  0BAC               	decfsz	??_main+1,f
+   486  001B  2818               	goto	u1487
+   487  001C  281D               	nop2
+   488  001D  3082               	movlw	130
+   489                           
+   490                           ;smartkey.C: 241: RA7 =1;
+   491  001E  1283               	bcf	3,5	;RP0=0, select bank0
+   492  001F  1303               	bcf	3,6	;RP1=0, select bank0
+   493  0020  1785               	bsf	5,7
+   494                           
+   495                           ;smartkey.C: 242: _delay((unsigned long)((100)*(4000000/4000.0)));
+   496  0021  00AC               	movwf	??_main+1
+   497  0022  30DD               	movlw	221
+   498  0023  00AB               	movwf	??_main
+   499  0024                     u1497:	
+   500  0024  0BAB               	decfsz	??_main,f
+   501  0025  2824               	goto	u1497
+   502  0026  0BAC               	decfsz	??_main+1,f
+   503  0027  2824               	goto	u1497
+   504  0028  2829               	nop2
+   505  0029  3000               	movlw	0
+   506                           
+   507                           ;smartkey.C: 244: PAIE = 1;
+   508  002A  158B               	bsf	11,3
+   509                           
+   510                           ;smartkey.C: 246: RegStatus = 0;
+   511  002B  1283               	bcf	3,5	;RP0=0, select bank0
+   512  002C  1303               	bcf	3,6	;RP1=0, select bank0
+   513  002D  01A4               	clrf	_RegStatus
+   514  002E  01F2               	clrf	?_setState
+   515  002F  01F3               	clrf	?_setState+1
+   516  0030  22E8               	fcall	_setState
+   517                           
+   518                           ;smartkey.C: 256: WRITE_EEPROM(0x7F,0xAA);
+   519  0031  30AA               	movlw	170
+   520  0032  00F2               	movwf	?_WRITE_EEPROM
+   521  0033  307F               	movlw	127
+   522  0034  2278               	fcall	_WRITE_EEPROM
+   523                           
+   524                           ;smartkey.C: 257: WRITE_EEPROM(0x7F,0xAA);
+   525  0035  30AA               	movlw	170
+   526  0036  00F2               	movwf	?_WRITE_EEPROM
+   527  0037  307F               	movlw	127
+   528  0038  2278               	fcall	_WRITE_EEPROM
+   529                           
+   530                           ;smartkey.C: 260: delay_x10ms(1);
+   531  0039  01F2               	clrf	?_delay_x10ms
+   532  003A  0AF2               	incf	?_delay_x10ms,f
+   533  003B  01F3               	clrf	?_delay_x10ms+1
+   534  003C  22A8               	fcall	_delay_x10ms
+   535                           
+   536                           ;smartkey.C: 262: if(READ_EEPROM(0x08)==0xff) {WRITE_EEPROM(0x08,0);_delay((unsigned lon
+      +                          g)((2)*(4000000/4000.0)));}
+   537  003D  3008               	movlw	8
+   538  003E  22FF               	fcall	_READ_EEPROM
+   539  003F  3AFF               	xorlw	255
+   540  0040  3008               	movlw	8
+   541  0041  1D03               	skipz
+   542  0042  2850               	goto	L3
+   543  0043  01F2               	clrf	?_WRITE_EEPROM
+   544  0044  2278               	fcall	_WRITE_EEPROM
+   545  0045  3003               	movlw	3
+   546  0046  1283               	bcf	3,5	;RP0=0, select bank0
+   547  0047  00AC               	movwf	??_main+1
+   548  0048  3097               	movlw	151
+   549  0049  00AB               	movwf	??_main
+   550  004A                     u1507:	
+   551  004A  0BAB               	decfsz	??_main,f
+   552  004B  284A               	goto	u1507
+   553  004C  0BAC               	decfsz	??_main+1,f
+   554  004D  284A               	goto	u1507
+   555  004E  284F               	nop2
+   556                           
+   557                           ;smartkey.C: 264: if(READ_EEPROM(0x08)==0xcc){
+   558  004F  3008               	movlw	8
+   559  0050                     L3:	
+   560  0050  22FF               	fcall	_READ_EEPROM
+   561  0051  3ACC               	xorlw	204
+   562  0052  1D03               	skipz
+   563  0053  286B               	goto	l4120
+   564  0054  3008               	movlw	8
+   565                           
+   566                           ;smartkey.C: 265: RegStatus &=~(0x20);
+   567  0055  1283               	bcf	3,5	;RP0=0, select bank0
+   568  0056  12A4               	bcf	_RegStatus,5
+   569                           
+   570                           ;smartkey.C: 266: setState(3,1800);
+   571  0057  00F2               	movwf	?_setState
+   572  0058  3007               	movlw	7
+   573  0059  00F3               	movwf	?_setState+1
+   574  005A  3003               	movlw	3
+   575  005B  22E8               	fcall	_setState
+   576                           
+   577                           ;smartkey.C: 267: mtOldState = 1;
+   578  005C  01A9               	clrf	_mtOldState
+   579  005D  0AA9               	incf	_mtOldState,f
+   580                           
+   581                           ;smartkey.C: 268: cntTmp = timeTick+50;
+   582  005E  087A               	movf	_timeTick+1,w
+   583  005F  00A1               	movwf	_cntTmp+1
+   584  0060  0879               	movf	_timeTick,w
+   585  0061  00A0               	movwf	_cntTmp
+   586  0062  3032               	movlw	50
+   587  0063  07A0               	addwf	_cntTmp,f
+   588  0064  1803               	skipnc
+   589  0065  0AA1               	incf	_cntTmp+1,f
+   590                           
+   591                           ;smartkey.C: 269: PR2 =12;
+   592  0066  300C               	movlw	12
+   593  0067  1683               	bsf	3,5	;RP0=1, select bank1
+   594  0068  0092               	movwf	18	;volatile
+   595                           
+   596                           ;smartkey.C: 270: beepOn();
+   597  0069  230D               	fcall	_beepOn
+   598                           
+   599                           ;smartkey.C: 271: } else {
+   600  006A  2872               	goto	l4124
+   601  006B                     l4120:	
+   602                           
+   603                           ;smartkey.C: 272: setState(2,400);
+   604  006B  3090               	movlw	144
+   605  006C  00F2               	movwf	?_setState
+   606  006D  3001               	movlw	1
+   607  006E  00F3               	movwf	?_setState+1
+   608  006F  3002               	movlw	2
+   609  0070  22E8               	fcall	_setState
+   610                           
+   611                           ;smartkey.C: 274: mtOldState = 0;
+   612  0071  01A9               	clrf	_mtOldState
+   613  0072                     l4124:	
+   614                           
+   615                           ;smartkey.C: 318: RA0 =RA6;
+   616  0072  1283               	bcf	3,5	;RP0=0, select bank0
+   617  0073  1F05               	btfss	5,6
+   618  0074  2879               	goto	u1170
+   619  0075  1283               	bcf	3,5	;RP0=0, select bank0
+   620  0076  1303               	bcf	3,6	;RP1=0, select bank0
+   621  0077  1405               	bsf	5,0
+   622  0078  287C               	goto	l4126
+   623  0079                     u1170:	
+   624  0079  1283               	bcf	3,5	;RP0=0, select bank0
+   625  007A  1303               	bcf	3,6	;RP1=0, select bank0
+   626  007B  1005               	bcf	5,0
+   627  007C                     l4126:	
+   628                           
+   629                           ;smartkey.C: 321: if(mode_chek == 0)
+   630  007C  08A8               	movf	_mode_chek,f
+   631  007D  1903               	btfsc	3,2
+   632                           
+   633                           ;smartkey.C: 322: {
+   634                           ;smartkey.C: 324: if(RegStatus & 0x80)
+   635  007E  1FA4               	btfss	_RegStatus,7
+   636  007F  292F               	goto	l4218
+   637                           
+   638                           ;smartkey.C: 325: {
+   639                           ;smartkey.C: 326: PAIE = 0;
+   640  0080  118B               	bcf	11,3
+   641                           
+   642                           ;smartkey.C: 329: RegStatus &= (~0x80);
+   643  0081  13A4               	bcf	_RegStatus,7
+   644                           
+   645                           ;smartkey.C: 341: {
+   646                           ;smartkey.C: 343: if ((RegStatus & 0x40) !=0){
+   647  0082  1B24               	btfsc	_RegStatus,6
+   648  0083  28DF               	goto	l4182
+   649  0084  2926               	goto	l4216
+   650  0085                     l4134:	
+   651  0085  290F               	goto	L2
+   652  0086                     l4136:	
+   653                           ;smartkey.C: 358: break;
+   654                           
+   655                           ;smartkey.C: 357: timeTick =0;
+   656                           
+   657                           ;smartkey.C: 356: lostDetect =0;
+   658                           
+   659                           
+   660                           ;smartkey.C: 361: if(timeTick >30){
+   661  0086  3000               	movlw	0
+   662  0087  027A               	subwf	_timeTick+1,w
+   663  0088  301F               	movlw	31
+   664  0089  1903               	skipnz
+   665  008A  0279               	subwf	_timeTick,w
+   666  008B  1C03               	skipc
+   667  008C  292E               	goto	l761
+   668  008D  3008               	movlw	8
+   669                           
+   670                           ;smartkey.C: 362: timeTick =0;
+   671  008E  01F9               	clrf	_timeTick
+   672  008F  01FA               	clrf	_timeTick+1
+   673                           
+   674                           ;smartkey.C: 364: if(READ_EEPROM(0x08)==0xcc) WRITE_EEPROM(0x08,0);
+   675  0090  22FF               	fcall	_READ_EEPROM
+   676  0091  3ACC               	xorlw	204
+   677  0092  1D03               	skipz
+   678  0093  2897               	goto	l4144
+   679  0094  3008               	movlw	8
+   680  0095  01F2               	clrf	?_WRITE_EEPROM
+   681  0096  2278               	fcall	_WRITE_EEPROM
+   682  0097                     l4144:	
+   683                           
+   684                           ;smartkey.C: 366: if((mtOldState == 3)){
+   685  0097  1283               	bcf	3,5	;RP0=0, select bank0
+   686  0098  0829               	movf	_mtOldState,w
+   687  0099  3A03               	xorlw	3
+   688  009A  1D03               	skipz
+   689  009B  28A8               	goto	l4154
+   690                           
+   691                           ;smartkey.C: 367: beepOn();TMR2ON = 0; beep(10,1);
+   692  009C  230D               	fcall	_beepOn
+   693  009D  300A               	movlw	10
+   694  009E  1283               	bcf	3,5	;RP0=0, select bank0
+   695  009F  1112               	bcf	18,2
+   696  00A0  01F6               	clrf	?_beep
+   697  00A1  0AF6               	incf	?_beep,f
+   698  00A2  2292               	fcall	_beep
+   699  00A3                     L1:	
+   700                           
+   701                           ;smartkey.C: 368: if(reAlertOn)reAlertOn =0;
+   702  00A3  0878               	movf	main@reAlertOn,w
+   703  00A4  1903               	btfsc	3,2
+   704  00A5  292E               	goto	l761
+   705  00A6  01F8               	clrf	main@reAlertOn
+   706  00A7  292E               	goto	l761
+   707  00A8                     l4154:	
+   708                           
+   709                           ;smartkey.C: 370: else if((mtOldState == 0)||(mtOldState == 4)){
+   710  00A8  0829               	movf	_mtOldState,w
+   711  00A9  1903               	btfsc	3,2
+   712  00AA  28AF               	goto	l752
+   713  00AB  0829               	movf	_mtOldState,w
+   714  00AC  3A04               	xorlw	4
+   715  00AD  1D03               	skipz
+   716  00AE  28BB               	goto	l4160
+   717  00AF                     l752:	
+   718  00AF  30AC               	movlw	172
+   719                           
+   720                           ;smartkey.C: 371: RegStatus |=(0x20);
+   721  00B0  16A4               	bsf	_RegStatus,5
+   722                           
+   723                           ;smartkey.C: 372: setState(1,3500);
+   724  00B1  00F2               	movwf	?_setState
+   725  00B2  300D               	movlw	13
+   726  00B3  00F3               	movwf	?_setState+1
+   727  00B4  3001               	movlw	1
+   728  00B5  22E8               	fcall	_setState
+   729  00B6  300A               	movlw	10
+   730                           
+   731                           ;smartkey.C: 373: beep(10,1);
+   732  00B7  01F6               	clrf	?_beep
+   733  00B8  0AF6               	incf	?_beep,f
+   734  00B9  2292               	fcall	_beep
+   735                           
+   736                           ;smartkey.C: 374: }
+   737  00BA  292E               	goto	l761
+   738  00BB                     l4160:	
+   739                           
+   740                           ;smartkey.C: 375: else if((mtOldState == 1)){
+   741  00BB  0B29               	decfsz	_mtOldState,w
+   742  00BC  292E               	goto	l761
+   743  00BD  28A3               	goto	L1
+   744  00BE                     l4166:	
+   745                           ;smartkey.C: 378: }
+   746                           ;smartkey.C: 379: }
+   747                           ;smartkey.C: 380: break;
+   748                           
+   749                           ;smartkey.C: 377: if(reAlertOn)reAlertOn =0;
+   750                           
+   751                           
+   752                           ;smartkey.C: 383: if(timeTick > 200)
+   753  00BE  3000               	movlw	0
+   754  00BF  027A               	subwf	_timeTick+1,w
+   755  00C0  30C9               	movlw	201
+   756  00C1  1903               	skipnz
+   757  00C2  0279               	subwf	_timeTick,w
+   758  00C3  1C03               	skipc
+   759  00C4  292E               	goto	l761
+   760                           
+   761                           ;smartkey.C: 384: {
+   762                           ;smartkey.C: 385: beepOff();
+   763  00C5  2312               	fcall	_beepOff
+   764                           
+   765                           ;smartkey.C: 386: if(READ_EEPROM(0x08)==0xcc) WRITE_EEPROM(0x08,0);
+   766  00C6  3008               	movlw	8
+   767  00C7  22FF               	fcall	_READ_EEPROM
+   768  00C8  3ACC               	xorlw	204
+   769  00C9  1D03               	skipz
+   770  00CA  28CE               	goto	l4174
+   771  00CB  3008               	movlw	8
+   772  00CC  01F2               	clrf	?_WRITE_EEPROM
+   773  00CD  2278               	fcall	_WRITE_EEPROM
+   774  00CE                     l4174:	
+   775  00CE  30AC               	movlw	172
+   776                           
+   777                           ;smartkey.C: 387: RegStatus |=(0x20);
+   778  00CF  1283               	bcf	3,5	;RP0=0, select bank0
+   779  00D0  16A4               	bsf	_RegStatus,5
+   780                           
+   781                           ;smartkey.C: 388: setState(1,3500);
+   782  00D1  00F2               	movwf	?_setState
+   783  00D2  300D               	movlw	13
+   784  00D3  00F3               	movwf	?_setState+1
+   785  00D4  3001               	movlw	1
+   786  00D5  22E8               	fcall	_setState
+   787  00D6  292E               	goto	l761
+   788  00D7                     l4176:	
+   789                           
+   790                           ;smartkey.C: 394: beepOff();
+   791  00D7  2312               	fcall	_beepOff
+   792                           
+   793                           ;smartkey.C: 395: setState(2,300);
+   794  00D8  302C               	movlw	44
+   795  00D9  00F2               	movwf	?_setState
+   796  00DA  3001               	movlw	1
+   797  00DB  00F3               	movwf	?_setState+1
+   798  00DC  3002               	movlw	2
+   799  00DD  22E8               	fcall	_setState
+   800                           
+   801                           ;smartkey.C: 396: break;
+   802  00DE  292E               	goto	l761
+   803  00DF                     l4182:	
+   804  00DF  082A               	movf	_mtState,w
+   805                           
+   806                           ; Switch size 1, requested type "space"
+   807                           ; Number of cases is 5, Range of values is 0 to 4
+   808                           ; switch strategies available:
+   809                           ; Name         Instructions Cycles
+   810                           ; direct_byte           11     6 (fixed)
+   811                           ; simple_byte           16     9 (average)
+   812                           ; jumptable            260     6 (fixed)
+   813                           ; rangetable             9     6 (fixed)
+   814                           ; spacedrange           16     9 (fixed)
+   815                           ; locatedrange           5     3 (fixed)
+   816                           ;	Chosen strategy is direct_byte
+   817  00E0  0084               	movwf	4
+   818  00E1  3005               	movlw	5
+   819  00E2  0204               	subwf	4,w
+   820  00E3  1803               	skipnc
+   821  00E4  292E               	goto	l761
+   822  00E5  3003               	movlw	high S4350
+   823  00E6  008A               	movwf	10
+   824  00E7  3008               	movlw	low S4350
+   825  00E8  0704               	addwf	4,w
+   826  00E9  0082               	movwf	2
+   827  00EA                     l4184:	
+   828                           
+   829                           ;smartkey.C: 420: {
+   830                           ;smartkey.C: 422: if(lostDetect==1 && timeTick< 1500)
+   831  00EA  0B27               	decfsz	_lostDetect,w
+   832  00EB  2911               	goto	l764
+   833  00EC  3005               	movlw	5
+   834  00ED  027A               	subwf	_timeTick+1,w
+   835  00EE  30DC               	movlw	220
+   836  00EF  1903               	skipnz
+   837  00F0  0279               	subwf	_timeTick,w
+   838  00F1  1803               	skipnc
+   839  00F2  2911               	goto	l764
+   840                           
+   841                           ;smartkey.C: 423: {
+   842                           ;smartkey.C: 424: if(READ_EEPROM(0x08)==0x00) WRITE_EEPROM(0x08,0xcc);
+   843  00F3  3008               	movlw	8
+   844  00F4  22FF               	fcall	_READ_EEPROM
+   845  00F5  3800               	iorlw	0
+   846  00F6  1D03               	skipz
+   847  00F7  28FC               	goto	l765
+   848  00F8  30CC               	movlw	204
+   849  00F9  00F2               	movwf	?_WRITE_EEPROM
+   850  00FA  3008               	movlw	8
+   851  00FB  2278               	fcall	_WRITE_EEPROM
+   852  00FC                     l765:	
+   853                           
+   854                           ;smartkey.C: 426: setState(3,1800);
+   855  00FC  3008               	movlw	8
+   856  00FD  00F2               	movwf	?_setState
+   857  00FE  3007               	movlw	7
+   858  00FF  00F3               	movwf	?_setState+1
+   859  0100  3003               	movlw	3
+   860  0101  22E8               	fcall	_setState
+   861                           
+   862                           ;smartkey.C: 427: cntTmp = timeTick+40;
+   863  0102  087A               	movf	_timeTick+1,w
+   864  0103  00A1               	movwf	_cntTmp+1
+   865  0104  0879               	movf	_timeTick,w
+   866  0105  00A0               	movwf	_cntTmp
+   867  0106  3028               	movlw	40
+   868  0107  07A0               	addwf	_cntTmp,f
+   869  0108  1803               	skipnc
+   870  0109  0AA1               	incf	_cntTmp+1,f
+   871                           
+   872                           ;smartkey.C: 428: PR2 =11;
+   873  010A  300B               	movlw	11
+   874  010B  1683               	bsf	3,5	;RP0=1, select bank1
+   875  010C  0092               	movwf	18	;volatile
+   876                           
+   877                           ;smartkey.C: 429: beepOn();
+   878  010D  230D               	fcall	_beepOn
+   879                           
+   880                           ;smartkey.C: 430: lostDetect =0;
+   881  010E  1283               	bcf	3,5	;RP0=0, select bank0
+   882  010F                     L2:	
+   883  010F  01A7               	clrf	_lostDetect
+   884                           
+   885                           ;smartkey.C: 431: }
+   886  0110  2913               	goto	l4200
+   887  0111                     l764:	
+   888                           
+   889                           ;smartkey.C: 432: else {
+   890                           ;smartkey.C: 433: lostDetect =1;
+   891  0111  01A7               	clrf	_lostDetect
+   892  0112  0AA7               	incf	_lostDetect,f
+   893  0113                     l4200:	
+   894                           
+   895                           ;smartkey.C: 436: }
+   896                           ;smartkey.C: 437: timeTick =0;
+   897  0113  01F9               	clrf	_timeTick
+   898  0114  01FA               	clrf	_timeTick+1
+   899                           
+   900                           ;smartkey.C: 438: }
+   901                           ;smartkey.C: 439: break;
+   902  0115  292E               	goto	l761
+   903  0116                     l4202:	
+   904                           
+   905                           ;smartkey.C: 442: {
+   906                           ;smartkey.C: 443: timeTick =0;
+   907  0116  01F9               	clrf	_timeTick
+   908  0117  01FA               	clrf	_timeTick+1
+   909                           
+   910                           ;smartkey.C: 444: beepOn();TMR2ON = 0;
+   911  0118  230D               	fcall	_beepOn
+   912  0119  3002               	movlw	2
+   913  011A  1283               	bcf	3,5	;RP0=0, select bank0
+   914  011B  1112               	bcf	18,2
+   915                           
+   916                           ;smartkey.C: 445: beep(10,2);
+   917  011C  00F6               	movwf	?_beep
+   918  011D  300A               	movlw	10
+   919  011E  2292               	fcall	_beep
+   920                           
+   921                           ;smartkey.C: 446: if(mtOldState == 3){reAlertOn =1;}
+   922  011F  0829               	movf	_mtOldState,w
+   923  0120  3A03               	xorlw	3
+   924  0121  1D03               	skipz
+   925  0122  292E               	goto	l761
+   926  0123  01F8               	clrf	main@reAlertOn
+   927  0124  0AF8               	incf	main@reAlertOn,f
+   928  0125  292E               	goto	l761
+   929  0126                     l4216:	
+   930  0126  082A               	movf	_mtState,w
+   931                           
+   932                           ; Switch size 1, requested type "space"
+   933                           ; Number of cases is 2, Range of values is 1 to 2
+   934                           ; switch strategies available:
+   935                           ; Name         Instructions Cycles
+   936                           ; simple_byte            7     4 (average)
+   937                           ; direct_byte           11     9 (fixed)
+   938                           ; jumptable            263     9 (fixed)
+   939                           ;	Chosen strategy is simple_byte
+   940  0127  3A01               	xorlw	1	; case 1
+   941  0128  1903               	skipnz
+   942  0129  28EA               	goto	l4184
+   943  012A  3A03               	xorlw	3	; case 2
+   944  012B  1903               	skipnz
+   945  012C  2916               	goto	l4202
+   946  012D  292E               	goto	l761
+   947  012E                     l761:	
+   948                           
+   949                           ;smartkey.C: 450: }
+   950                           ;smartkey.C: 452: }
+   951                           ;smartkey.C: 454: PAIE = 1;
+   952  012E  158B               	bsf	11,3
+   953  012F                     l4218:	
+   954                           
+   955                           ;smartkey.C: 455: }
+   956                           ;smartkey.C: 457: }
+   957                           ;smartkey.C: 461: {
+   958                           ;smartkey.C: 462: if((timeOut!=0)&&( timeTick >timeOut)){
+   959  012F  0823               	movf	_timeOut+1,w
+   960  0130  0422               	iorwf	_timeOut,w
+   961  0131  1903               	skipnz
+   962  0132  29A1               	goto	l770
+   963  0133  087A               	movf	_timeTick+1,w
+   964  0134  0223               	subwf	_timeOut+1,w
+   965  0135  1D03               	skipz
+   966  0136  2939               	goto	u1375
+   967  0137  0879               	movf	_timeTick,w
+   968  0138  0222               	subwf	_timeOut,w
+   969  0139                     u1375:	
+   970  0139  1C03               	btfss	3,0
+   971  013A  2993               	goto	l4276
+   972  013B  29A1               	goto	l770
+   973  013C                     l4224:	
+   974                           
+   975                           ;smartkey.C: 473: beepOff();
+   976  013C  2312               	fcall	_beepOff
+   977  013D  302C               	movlw	44
+   978                           
+   979                           ;smartkey.C: 474: RegStatus &=(~0x20);
+   980  013E  1283               	bcf	3,5	;RP0=0, select bank0
+   981  013F  12A4               	bcf	_RegStatus,5
+   982                           
+   983                           ;smartkey.C: 475: setState(2,300);
+   984  0140  00F2               	movwf	?_setState
+   985  0141  3001               	movlw	1
+   986  0142  00F3               	movwf	?_setState+1
+   987  0143  3002               	movlw	2
+   988  0144  22E8               	fcall	_setState
+   989                           
+   990                           ;smartkey.C: 476: break;
+   991  0145  29A1               	goto	l770
+   992  0146                     l4230:	
+   993                           
+   994                           ;smartkey.C: 478: beepOff();
+   995  0146  2312               	fcall	_beepOff
+   996                           
+   997                           ;smartkey.C: 479: delay_x10ms(20);
+   998  0147  3014               	movlw	20
+   999  0148  00F2               	movwf	?_delay_x10ms
+  1000  0149  01F3               	clrf	?_delay_x10ms+1
+  1001  014A  22A8               	fcall	_delay_x10ms
+  1002                           
+  1003                           ;smartkey.C: 480: beepOn();TMR2ON = 0;reAlertOn =0;
+  1004  014B  230D               	fcall	_beepOn
+  1005  014C  301E               	movlw	30
+  1006  014D  1283               	bcf	3,5	;RP0=0, select bank0
+  1007  014E  1112               	bcf	18,2
+  1008  014F  01F8               	clrf	main@reAlertOn
+  1009  0150  01F6               	clrf	?_beep
+  1010  0151  0AF6               	incf	?_beep,f
+  1011  0152  2292               	fcall	_beep
+  1012  0153  3000               	movlw	0
+  1013                           
+  1014                           ;smartkey.C: 482: setState(0,0);
+  1015  0154  01F2               	clrf	?_setState
+  1016  0155  01F3               	clrf	?_setState+1
+  1017  0156  22E8               	fcall	_setState
+  1018                           
+  1019                           ;smartkey.C: 483: break;
+  1020  0157  29A1               	goto	l770
+  1021  0158                     l4244:	
+  1022                           
+  1023                           ;smartkey.C: 486: if(READ_EEPROM(0x08)==0xcc) WRITE_EEPROM(0x08,0);
+  1024  0158  3008               	movlw	8
+  1025  0159  22FF               	fcall	_READ_EEPROM
+  1026  015A  3ACC               	xorlw	204
+  1027  015B  1D03               	skipz
+  1028  015C  2960               	goto	l4248
+  1029  015D  3008               	movlw	8
+  1030  015E  01F2               	clrf	?_WRITE_EEPROM
+  1031  015F  2278               	fcall	_WRITE_EEPROM
+  1032  0160                     l4248:	
+  1033                           
+  1034                           ;smartkey.C: 488: if(reAlertOn){
+  1035  0160  0878               	movf	main@reAlertOn,w
+  1036  0161  1903               	btfsc	3,2
+  1037  0162  2976               	goto	l4258
+  1038                           
+  1039                           ;smartkey.C: 489: setState(4,6000);
+  1040  0163  3070               	movlw	112
+  1041  0164  00F2               	movwf	?_setState
+  1042  0165  3017               	movlw	23
+  1043  0166  00F3               	movwf	?_setState+1
+  1044  0167  3004               	movlw	4
+  1045  0168  22E8               	fcall	_setState
+  1046                           
+  1047                           ;smartkey.C: 490: cntTmp = timeTick+40;
+  1048  0169  087A               	movf	_timeTick+1,w
+  1049  016A  00A1               	movwf	_cntTmp+1
+  1050  016B  0879               	movf	_timeTick,w
+  1051  016C  00A0               	movwf	_cntTmp
+  1052  016D  3028               	movlw	40
+  1053  016E  07A0               	addwf	_cntTmp,f
+  1054  016F  1803               	skipnc
+  1055  0170  0AA1               	incf	_cntTmp+1,f
+  1056                           
+  1057                           ;smartkey.C: 491: PR2 =11;
+  1058  0171  300B               	movlw	11
+  1059  0172  1683               	bsf	3,5	;RP0=1, select bank1
+  1060  0173  0092               	movwf	18	;volatile
+  1061                           
+  1062                           ;smartkey.C: 492: beepOn();
+  1063  0174  230D               	fcall	_beepOn
+  1064                           
+  1065                           ;smartkey.C: 494: }else if(mtOldState == 0){
+  1066  0175  29A1               	goto	l770
+  1067  0176                     l4258:	
+  1068  0176  1283               	bcf	3,5	;RP0=0, select bank0
+  1069  0177  08A9               	movf	_mtOldState,f
+  1070  0178  1D03               	skipz
+  1071  0179  2986               	goto	l4264
+  1072                           
+  1073                           ;smartkey.C: 496: beep(10,5);
+  1074  017A  3005               	movlw	5
+  1075  017B  00F6               	movwf	?_beep
+  1076  017C  300A               	movlw	10
+  1077  017D  2292               	fcall	_beep
+  1078  017E  30AC               	movlw	172
+  1079                           
+  1080                           ;smartkey.C: 497: RegStatus |=(0x20);
+  1081  017F  16A4               	bsf	_RegStatus,5
+  1082                           
+  1083                           ;smartkey.C: 499: setState(1,3500);
+  1084  0180  00F2               	movwf	?_setState
+  1085  0181  300D               	movlw	13
+  1086  0182  00F3               	movwf	?_setState+1
+  1087  0183  3001               	movlw	1
+  1088  0184  22E8               	fcall	_setState
+  1089                           
+  1090                           ;smartkey.C: 501: }else{
+  1091  0185  29A1               	goto	l770
+  1092  0186                     l4264:	
+  1093                           
+  1094                           ;smartkey.C: 502: beepOn();TMR2ON = 0;
+  1095  0186  230D               	fcall	_beepOn
+  1096  0187  301E               	movlw	30
+  1097  0188  1283               	bcf	3,5	;RP0=0, select bank0
+  1098  0189  1112               	bcf	18,2
+  1099                           
+  1100                           ;smartkey.C: 503: reAlertOn =0;
+  1101  018A  01F8               	clrf	main@reAlertOn
+  1102  018B  01F6               	clrf	?_beep
+  1103  018C  0AF6               	incf	?_beep,f
+  1104  018D  2292               	fcall	_beep
+  1105  018E  3000               	movlw	0
+  1106                           
+  1107                           ;smartkey.C: 505: setState(0,0);
+  1108  018F  01F2               	clrf	?_setState
+  1109  0190  01F3               	clrf	?_setState+1
+  1110  0191  22E8               	fcall	_setState
+  1111  0192  29A1               	goto	l770
+  1112  0193                     l4276:	
+  1113  0193  082A               	movf	_mtState,w
+  1114                           
+  1115                           ; Switch size 1, requested type "space"
+  1116                           ; Number of cases is 4, Range of values is 1 to 4
+  1117                           ; switch strategies available:
+  1118                           ; Name         Instructions Cycles
+  1119                           ; simple_byte           13     7 (average)
+  1120                           ; direct_byte           13     9 (fixed)
+  1121                           ; jumptable            263     9 (fixed)
+  1122                           ;	Chosen strategy is simple_byte
+  1123  0194  3A01               	xorlw	1	; case 1
+  1124  0195  1903               	skipnz
+  1125  0196  29A1               	goto	l770
+  1126  0197  3A03               	xorlw	3	; case 2
+  1127  0198  1903               	skipnz
+  1128  0199  2958               	goto	l4244
+  1129  019A  3A01               	xorlw	1	; case 3
+  1130  019B  1903               	skipnz
+  1131  019C  293C               	goto	l4224
+  1132  019D  3A07               	xorlw	7	; case 4
+  1133  019E  1903               	skipnz
+  1134  019F  2946               	goto	l4230
+  1135  01A0  29A1               	goto	l770
+  1136  01A1                     l770:	
+  1137                           
+  1138                           ;smartkey.C: 509: }
+  1139                           ;smartkey.C: 511: }
+  1140                           ;smartkey.C: 513: if((RC1 ) && (mtState == 1)){
+  1141  01A1  1283               	bcf	3,5	;RP0=0, select bank0
+  1142  01A2  1C87               	btfss	7,1
+  1143  01A3  29E1               	goto	l4310
+  1144  01A4  0B2A               	decfsz	_mtState,w
+  1145  01A5  29E1               	goto	l4310
+  1146                           
+  1147                           ;smartkey.C: 514: timeTick =0;
+  1148  01A6  01F9               	clrf	_timeTick
+  1149  01A7  01FA               	clrf	_timeTick+1
+  1150  01A8                     l4282:	
+  1151                           ;smartkey.C: 515: while(timeTick <700);
+  1152                           
+  1153  01A8  3002               	movlw	2
+  1154  01A9  027A               	subwf	_timeTick+1,w
+  1155  01AA  30BC               	movlw	188
+  1156  01AB  1903               	skipnz
+  1157  01AC  0279               	subwf	_timeTick,w
+  1158  01AD  1C03               	skipc
+  1159  01AE  29A8               	goto	l4282
+  1160                           
+  1161                           ;smartkey.C: 517: cntTmp=0;
+  1162  01AF  01A0               	clrf	_cntTmp
+  1163  01B0  01A1               	clrf	_cntTmp+1
+  1164                           
+  1165                           ;smartkey.C: 518: while((RC1) &&( cntTmp<9)){
+  1166  01B1  29D0               	goto	l4296
+  1167  01B2                     l4298:	
+  1168  01B2  3000               	movlw	0
+  1169  01B3  0221               	subwf	_cntTmp+1,w
+  1170  01B4  3009               	movlw	9
+  1171  01B5  1903               	skipnz
+  1172  01B6  0220               	subwf	_cntTmp,w
+  1173  01B7  1803               	btfsc	3,0
+  1174  01B8  29D4               	goto	l4300
+  1175                           
+  1176                           ;smartkey.C: 519: beepOn();TMR2ON = 0; beep(10,1);
+  1177  01B9  230D               	fcall	_beepOn
+  1178  01BA  300A               	movlw	10
+  1179  01BB  1283               	bcf	3,5	;RP0=0, select bank0
+  1180  01BC  1112               	bcf	18,2
+  1181  01BD  01F6               	clrf	?_beep
+  1182  01BE  0AF6               	incf	?_beep,f
+  1183  01BF  2292               	fcall	_beep
+  1184                           
+  1185                           ;smartkey.C: 520: cntTmp++;
+  1186  01C0  0AA0               	incf	_cntTmp,f
+  1187  01C1  1903               	skipnz
+  1188  01C2  0AA1               	incf	_cntTmp+1,f
+  1189                           
+  1190                           ;smartkey.C: 521: _delay((unsigned long)((1000)*(4000000/4000.0)));
+  1191  01C3  3006               	movlw	6
+  1192  01C4  00AD               	movwf	??_main+2
+  1193  01C5  3013               	movlw	19
+  1194  01C6  00AC               	movwf	??_main+1
+  1195  01C7  30B1               	movlw	177
+  1196  01C8  00AB               	movwf	??_main
+  1197  01C9                     u1517:	
+  1198  01C9  0BAB               	decfsz	??_main,f
+  1199  01CA  29C9               	goto	u1517
+  1200  01CB  0BAC               	decfsz	??_main+1,f
+  1201  01CC  29C9               	goto	u1517
+  1202  01CD  0BAD               	decfsz	??_main+2,f
+  1203  01CE  29C9               	goto	u1517
+  1204  01CF  29D0               	nop2
+  1205  01D0                     l4296:	
+  1206  01D0  1283               	bcf	3,5	;RP0=0, select bank0
+  1207  01D1  1303               	bcf	3,6	;RP1=0, select bank0
+  1208  01D2  1887               	btfsc	7,1
+  1209  01D3  29B2               	goto	l4298
+  1210  01D4                     l4300:	
+  1211                           
+  1212                           ;smartkey.C: 522: }
+  1213                           ;smartkey.C: 523: cntTmp =0;
+  1214  01D4  01A0               	clrf	_cntTmp
+  1215  01D5  01A1               	clrf	_cntTmp+1
+  1216                           
+  1217                           ;smartkey.C: 524: if(RC1){
+  1218  01D6  1C87               	btfss	7,1
+  1219  01D7  29DF               	goto	l4308
+  1220  01D8  302C               	movlw	44
+  1221                           
+  1222                           ;smartkey.C: 526: RegStatus &=(~0x20);
+  1223  01D9  12A4               	bcf	_RegStatus,5
+  1224                           
+  1225                           ;smartkey.C: 527: setState(2,300);
+  1226  01DA  00F2               	movwf	?_setState
+  1227  01DB  3001               	movlw	1
+  1228  01DC  00F3               	movwf	?_setState+1
+  1229  01DD  3002               	movlw	2
+  1230  01DE  22E8               	fcall	_setState
+  1231  01DF                     l4308:	
+  1232                           
+  1233                           ;smartkey.C: 528: }
+  1234                           ;smartkey.C: 530: timeTick =0;
+  1235  01DF  01F9               	clrf	_timeTick
+  1236  01E0  01FA               	clrf	_timeTick+1
+  1237  01E1                     l4310:	
+  1238                           
+  1239                           ;smartkey.C: 531: }
+  1240                           ;smartkey.C: 534: if(RegStatus & 0x20) {RC4 =1;RC2 =1;}
+  1241  01E1  1EA4               	btfss	_RegStatus,5
+  1242  01E2  29E6               	goto	l792
+  1243  01E3  1607               	bsf	7,4
+  1244  01E4  1507               	bsf	7,2
+  1245  01E5  2872               	goto	l4124
+  1246  01E6                     l792:	
+  1247                           
+  1248                           ;smartkey.C: 535: else {RC4 =0;RC2 =0;}
+  1249  01E6  1207               	bcf	7,4
+  1250  01E7  1107               	bcf	7,2
+  1251  01E8  2872               	goto	l4124
+  1252  01E9                     __end_of_main:	
+  1253                           
+  1254                           	psect	swtext1
+  1255  0308                     __pswtext1:	
+  1256  0308                     S4350:	
+  1257  0308  292E               	ljmp	l761
+  1258  0309  2885               	ljmp	l4134
+  1259  030A  2886               	ljmp	l4136
+  1260  030B  28BE               	ljmp	l4166
+  1261  030C  28D7               	ljmp	l4176
+  1262                           
+  1263                           	psect	text457
+  1264  02F5                     __ptext457:	
+  1265 ;; =============== function _main ends ============
+  1266                           
+  1267                           
+  1268 ;; *************** function _sys_init *****************
+  1269 ;; Defined at:
+  1270 ;;		line 3 in file "sysinit.c"
+  1271 ;; Parameters:    Size  Location     Type
+  1272 ;;		None
+  1273 ;; Auto vars:     Size  Location     Type
+  1274 ;;		None
+  1275 ;; Return value:  Size  Location     Type
+  1276 ;;		None               void
+  1277 ;; Registers used:
+  1278 ;;		wreg
+  1279 ;; Tracked objects:
+  1280 ;;		On entry : 0/0
+  1281 ;;		On exit  : 60/20
+  1282 ;;		Unchanged: 0/0
+  1283 ;; Data sizes:     COMMON   BANK0   BANK1
+  1284 ;;      Params:         0       0       0
+  1285 ;;      Locals:         0       0       0
+  1286 ;;      Temps:          0       0       0
+  1287 ;;      Totals:         0       0       0
+  1288 ;;Total ram usage:        0 bytes
+  1289 ;; Hardware stack levels used:    1
+  1290 ;; Hardware stack levels required when called:    1
+  1291 ;; This function calls:
+  1292 ;;		Nothing
+  1293 ;; This function is called by:
+  1294 ;;		_main
+  1295 ;; This function uses a non-reentrant model
+  1296 ;;
+  1297  02F5                     _sys_init:	
+  1298                           
+  1299                           ;sysinit.c: 21: OSCCON = 0B01010001;
+  1300                           
+  1301                           ; Regs used in _sys_init: [wreg]
+  1302  02F5  3051               	movlw	81
+  1303  02F6  1683               	bsf	3,5	;RP0=1, select bank1
+  1304  02F7  1303               	bcf	3,6	;RP1=0, select bank1
+  1305  02F8  008F               	movwf	15	;volatile
+  1306                           
+  1307                           ;sysinit.c: 22: _nop();
+  1308  02F9  0000               	nop
+  1309  02FA                     l1447:	
+  1310                           ;sysinit.c: 28: while(HTS==0);
+  1311                           
+  1312  02FA  1683               	bsf	3,5	;RP0=1, select bank1
+  1313  02FB  1303               	bcf	3,6	;RP1=0, select bank1
+  1314  02FC  190F               	btfsc	15,2
+  1315  02FD  0008               	return
+  1316  02FE  2AFA               	goto	l1447
+  1317  02FF                     __end_of_sys_init:	
+  1318                           
+  1319                           	psect	text458
+  1320  0292                     __ptext458:	
+  1321 ;; =============== function _sys_init ends ============
+  1322                           
+  1323                           
+  1324 ;; *************** function _beep *****************
+  1325 ;; Defined at:
+  1326 ;;		line 166 in file "smartkey.C"
+  1327 ;; Parameters:    Size  Location     Type
+  1328 ;;  delay           1    wreg     unsigned char 
+  1329 ;;  rep             1    6[COMMON] unsigned char 
+  1330 ;; Auto vars:     Size  Location     Type
+  1331 ;;  delay           1    7[COMMON] unsigned char 
+  1332 ;; Return value:  Size  Location     Type
+  1333 ;;		None               void
+  1334 ;; Registers used:
+  1335 ;;		wreg, status,2, status,0, pclath, cstack
+  1336 ;; Tracked objects:
+  1337 ;;		On entry : 60/0
+  1338 ;;		On exit  : 60/0
+  1339 ;;		Unchanged: FFF9F/0
+  1340 ;; Data sizes:     COMMON   BANK0   BANK1
+  1341 ;;      Params:         1       0       0
+  1342 ;;      Locals:         1       0       0
+  1343 ;;      Temps:          0       0       0
+  1344 ;;      Totals:         2       0       0
+  1345 ;;Total ram usage:        2 bytes
+  1346 ;; Hardware stack levels used:    1
+  1347 ;; Hardware stack levels required when called:    2
+  1348 ;; This function calls:
+  1349 ;;		_delay_x10ms
+  1350 ;; This function is called by:
+  1351 ;;		_main
+  1352 ;; This function uses a non-reentrant model
+  1353 ;;
+  1354  0292                     _beep:	
+  1355                           
+  1356                           ; Regs used in _beep: [wreg+status,2+status,0+pclath+cstack]
+  1357                           ;beep@delay stored from wreg
+  1358  0292  00F7               	movwf	beep@delay
+  1359  0293                     l3784:	
+  1360                           ;smartkey.C: 169: {
+  1361                           ;smartkey.C: 171: while(rep--){
+  1362                           
+  1363  0293  03F6               	decf	beep@rep,f
+  1364  0294  0876               	movf	beep@rep,w
+  1365  0295  3AFF               	xorlw	255
+  1366  0296  1903               	btfsc	3,2
+  1367  0297  0008               	return
+  1368  0298  300C               	movlw	12
+  1369                           
+  1370                           ;smartkey.C: 172: TMR2ON = 1;
+  1371  0299  1512               	bsf	18,2
+  1372                           
+  1373                           ;smartkey.C: 173: PR2 = 12;
+  1374  029A  1683               	bsf	3,5	;RP0=1, select bank1
+  1375  029B  0092               	movwf	18	;volatile
+  1376                           
+  1377                           ;smartkey.C: 174: delay_x10ms(delay);
+  1378  029C  0877               	movf	beep@delay,w
+  1379  029D  00F2               	movwf	?_delay_x10ms
+  1380  029E  01F3               	clrf	?_delay_x10ms+1
+  1381  029F  22A8               	fcall	_delay_x10ms
+  1382  02A0  3014               	movlw	20
+  1383                           
+  1384                           ;smartkey.C: 175: TMR2ON = 0;RA4 =0;
+  1385  02A1  1283               	bcf	3,5	;RP0=0, select bank0
+  1386  02A2  1112               	bcf	18,2
+  1387  02A3  1205               	bcf	5,4
+  1388                           
+  1389                           ;smartkey.C: 176: delay_x10ms(20);
+  1390  02A4  00F2               	movwf	?_delay_x10ms
+  1391  02A5  01F3               	clrf	?_delay_x10ms+1
+  1392  02A6  22A8               	fcall	_delay_x10ms
+  1393  02A7  2A93               	goto	l3784
+  1394  02A8                     __end_of_beep:	
+  1395                           
+  1396                           	psect	text459
+  1397  025D                     __ptext459:	
+  1398 ;; =============== function _beep ends ============
+  1399                           
+  1400                           
+  1401 ;; *************** function _int_init *****************
+  1402 ;; Defined at:
+  1403 ;;		line 67 in file "sysinit.c"
+  1404 ;; Parameters:    Size  Location     Type
+  1405 ;;		None
+  1406 ;; Auto vars:     Size  Location     Type
+  1407 ;;  tmp             1    0        unsigned char 
+  1408 ;; Return value:  Size  Location     Type
+  1409 ;;		None               void
+  1410 ;; Registers used:
+  1411 ;;		wreg, status,2
+  1412 ;; Tracked objects:
+  1413 ;;		On entry : 60/0
+  1414 ;;		On exit  : 60/20
+  1415 ;;		Unchanged: FFF9F/0
+  1416 ;; Data sizes:     COMMON   BANK0   BANK1
+  1417 ;;      Params:         0       0       0
+  1418 ;;      Locals:         0       0       0
+  1419 ;;      Temps:          0       0       0
+  1420 ;;      Totals:         0       0       0
+  1421 ;;Total ram usage:        0 bytes
+  1422 ;; Hardware stack levels used:    1
+  1423 ;; Hardware stack levels required when called:    1
+  1424 ;; This function calls:
+  1425 ;;		Nothing
+  1426 ;; This function is called by:
+  1427 ;;		_main
+  1428 ;; This function uses a non-reentrant model
+  1429 ;;
+  1430  025D                     _int_init:	
+  1431                           
+  1432                           ;sysinit.c: 72: INTCON = 0B00000000;
+  1433                           
+  1434                           ; Regs used in _int_init: [wreg+status,2]
+  1435  025D  018B               	clrf	11	;volatile
+  1436                           
+  1437                           ;sysinit.c: 73: PIE1 = 0B00000000;
+  1438  025E  1683               	bsf	3,5	;RP0=1, select bank1
+  1439  025F  018C               	clrf	12	;volatile
+  1440                           
+  1441                           ;sysinit.c: 74: PIR1 = 0B00000000;
+  1442  0260  1283               	bcf	3,5	;RP0=0, select bank0
+  1443  0261  018C               	clrf	12	;volatile
+  1444                           
+  1445                           ;sysinit.c: 76: IOCA6 = 1;
+  1446  0262  1683               	bsf	3,5	;RP0=1, select bank1
+  1447  0263  1716               	bsf	22,6
+  1448                           
+  1449                           ;sysinit.c: 77: tmp = PORTA;
+  1450  0264  1283               	bcf	3,5	;RP0=0, select bank0
+  1451  0265  0805               	movf	5,w	;volatile
+  1452                           
+  1453                           ;sysinit.c: 78: PAIF = 0;
+  1454  0266  100B               	bcf	11,0
+  1455                           
+  1456                           ;sysinit.c: 79: PAIE = 0;
+  1457  0267  118B               	bcf	11,3
+  1458                           
+  1459                           ;sysinit.c: 82: INTEDG = 0;
+  1460  0268  1683               	bsf	3,5	;RP0=1, select bank1
+  1461  0269  1301               	bcf	1,6
+  1462                           
+  1463                           ;sysinit.c: 83: INTF = 0;
+  1464  026A  108B               	bcf	11,1
+  1465                           
+  1466                           ;sysinit.c: 84: INTE = 0;
+  1467  026B  120B               	bcf	11,4
+  1468                           
+  1469                           ;sysinit.c: 86: TMR2IF = 0;
+  1470  026C  1283               	bcf	3,5	;RP0=0, select bank0
+  1471  026D  108C               	bcf	12,1
+  1472                           
+  1473                           ;sysinit.c: 87: TMR2IE = 1;
+  1474  026E  1683               	bsf	3,5	;RP0=1, select bank1
+  1475  026F  148C               	bsf	12,1
+  1476                           
+  1477                           ;sysinit.c: 88: TMR2ON = 0;
+  1478  0270  1283               	bcf	3,5	;RP0=0, select bank0
+  1479  0271  1112               	bcf	18,2
+  1480                           
+  1481                           ;sysinit.c: 90: TMR1IF = 0;
+  1482  0272  100C               	bcf	12,0
+  1483                           
+  1484                           ;sysinit.c: 91: TMR1IE = 1;
+  1485  0273  1683               	bsf	3,5	;RP0=1, select bank1
+  1486  0274  140C               	bsf	12,0
+  1487                           
+  1488                           ;sysinit.c: 94: PEIE = 1;
+  1489  0275  170B               	bsf	11,6
+  1490                           
+  1491                           ;sysinit.c: 96: GIE = 1;
+  1492  0276  178B               	bsf	11,7
+  1493  0277  0008               	return
+  1494  0278                     __end_of_int_init:	
+  1495                           
+  1496                           	psect	text460
+  1497  02CA                     __ptext460:	
+  1498 ;; =============== function _int_init ends ============
+  1499                           
+  1500                           
+  1501 ;; *************** function _timer_init *****************
+  1502 ;; Defined at:
+  1503 ;;		line 45 in file "sysinit.c"
+  1504 ;; Parameters:    Size  Location     Type
+  1505 ;;		None
+  1506 ;; Auto vars:     Size  Location     Type
+  1507 ;;		None
+  1508 ;; Return value:  Size  Location     Type
+  1509 ;;		None               void
+  1510 ;; Registers used:
+  1511 ;;		wreg, status,2
+  1512 ;; Tracked objects:
+  1513 ;;		On entry : 60/20
+  1514 ;;		On exit  : 60/0
+  1515 ;;		Unchanged: FFF9F/0
+  1516 ;; Data sizes:     COMMON   BANK0   BANK1
+  1517 ;;      Params:         0       0       0
+  1518 ;;      Locals:         0       0       0
+  1519 ;;      Temps:          0       0       0
+  1520 ;;      Totals:         0       0       0
+  1521 ;;Total ram usage:        0 bytes
+  1522 ;; Hardware stack levels used:    1
+  1523 ;; Hardware stack levels required when called:    1
+  1524 ;; This function calls:
+  1525 ;;		Nothing
+  1526 ;; This function is called by:
+  1527 ;;		_main
+  1528 ;; This function uses a non-reentrant model
+  1529 ;;
+  1530  02CA                     _timer_init:	
+  1531                           
+  1532                           ;sysinit.c: 55: TMR2 = 0;
+  1533                           
+  1534                           ; Regs used in _timer_init: [wreg+status,2]
+  1535  02CA  1283               	bcf	3,5	;RP0=0, select bank0
+  1536  02CB  0191               	clrf	17	;volatile
+  1537                           
+  1538                           ;sysinit.c: 56: PR2 = 0;
+  1539  02CC  1683               	bsf	3,5	;RP0=1, select bank1
+  1540  02CD  0192               	clrf	18	;volatile
+  1541                           
+  1542                           ;sysinit.c: 57: T2CON = 0B00101001;
+  1543  02CE  3029               	movlw	41
+  1544  02CF  1283               	bcf	3,5	;RP0=0, select bank0
+  1545  02D0  0092               	movwf	18	;volatile
+  1546                           
+  1547                           ;sysinit.c: 60: TMR1H = -5000>>8;
+  1548  02D1  30EC               	movlw	236
+  1549  02D2  008F               	movwf	15	;volatile
+  1550                           
+  1551                           ;sysinit.c: 61: TMR1L = -5000;
+  1552  02D3  3078               	movlw	120
+  1553  02D4  008E               	movwf	14	;volatile
+  1554                           
+  1555                           ;sysinit.c: 62: T1CON = 0B00100001;
+  1556  02D5  3021               	movlw	33
+  1557  02D6  0090               	movwf	16	;volatile
+  1558                           
+  1559                           ;sysinit.c: 63: TMR1ON = 1;
+  1560  02D7  1410               	bsf	16,0
+  1561  02D8  0008               	return
+  1562  02D9                     __end_of_timer_init:	
+  1563                           
+  1564                           	psect	text461
+  1565  02D9                     __ptext461:	
+  1566 ;; =============== function _timer_init ends ============
+  1567                           
+  1568                           
+  1569 ;; *************** function _gpio_init *****************
+  1570 ;; Defined at:
+  1571 ;;		line 32 in file "sysinit.c"
+  1572 ;; Parameters:    Size  Location     Type
+  1573 ;;		None
+  1574 ;; Auto vars:     Size  Location     Type
+  1575 ;;		None
+  1576 ;; Return value:  Size  Location     Type
+  1577 ;;		None               void
+  1578 ;; Registers used:
+  1579 ;;		wreg, status,2
+  1580 ;; Tracked objects:
+  1581 ;;		On entry : 60/20
+  1582 ;;		On exit  : 60/20
+  1583 ;;		Unchanged: FFF9F/0
+  1584 ;; Data sizes:     COMMON   BANK0   BANK1
+  1585 ;;      Params:         0       0       0
+  1586 ;;      Locals:         0       0       0
+  1587 ;;      Temps:          0       0       0
+  1588 ;;      Totals:         0       0       0
+  1589 ;;Total ram usage:        0 bytes
+  1590 ;; Hardware stack levels used:    1
+  1591 ;; Hardware stack levels required when called:    1
+  1592 ;; This function calls:
+  1593 ;;		Nothing
+  1594 ;; This function is called by:
+  1595 ;;		_main
+  1596 ;; This function uses a non-reentrant model
+  1597 ;;
+  1598  02D9                     _gpio_init:	
+  1599                           
+  1600                           ;sysinit.c: 34: PORTA = 0B00000000;
+  1601                           
+  1602                           ; Regs used in _gpio_init: [wreg+status,2]
+  1603  02D9  1283               	bcf	3,5	;RP0=0, select bank0
+  1604  02DA  0185               	clrf	5	;volatile
+  1605                           
+  1606                           ;sysinit.c: 35: TRISA = 0B01101110;
+  1607  02DB  306E               	movlw	110
+  1608  02DC  1683               	bsf	3,5	;RP0=1, select bank1
+  1609  02DD  0085               	movwf	5	;volatile
+  1610                           
+  1611                           ;sysinit.c: 36: WPUA = 0B10010000;
+  1612  02DE  3090               	movlw	144
+  1613  02DF  0095               	movwf	21	;volatile
+  1614                           
+  1615                           ;sysinit.c: 38: PORTC = 0B00000000;
+  1616  02E0  1283               	bcf	3,5	;RP0=0, select bank0
+  1617  02E1  0187               	clrf	7	;volatile
+  1618                           
+  1619                           ;sysinit.c: 39: TRISC = 0B11101011;
+  1620  02E2  30EB               	movlw	235
+  1621  02E3  1683               	bsf	3,5	;RP0=1, select bank1
+  1622  02E4  0087               	movwf	7	;volatile
+  1623                           
+  1624                           ;sysinit.c: 40: WPUC = 0B00010000;
+  1625  02E5  3010               	movlw	16
+  1626  02E6  0088               	movwf	8	;volatile
+  1627  02E7  0008               	return
+  1628  02E8                     __end_of_gpio_init:	
+  1629                           
+  1630                           	psect	text462
+  1631  02E8                     __ptext462:	
+  1632 ;; =============== function _gpio_init ends ============
+  1633                           
+  1634                           
+  1635 ;; *************** function _setState *****************
+  1636 ;; Defined at:
+  1637 ;;		line 211 in file "smartkey.C"
+  1638 ;; Parameters:    Size  Location     Type
+  1639 ;;  stt             1    wreg     unsigned char 
+  1640 ;;  _tOut           2    2[COMMON] unsigned int 
+  1641 ;; Auto vars:     Size  Location     Type
+  1642 ;;  stt             1    4[COMMON] unsigned char 
+  1643 ;; Return value:  Size  Location     Type
+  1644 ;;		None               void
+  1645 ;; Registers used:
+  1646 ;;		wreg, status,2
+  1647 ;; Tracked objects:
+  1648 ;;		On entry : 40/0
+  1649 ;;		On exit  : 60/0
+  1650 ;;		Unchanged: FFF9F/0
+  1651 ;; Data sizes:     COMMON   BANK0   BANK1
+  1652 ;;      Params:         2       0       0
+  1653 ;;      Locals:         1       0       0
+  1654 ;;      Temps:          0       0       0
+  1655 ;;      Totals:         3       0       0
+  1656 ;;Total ram usage:        3 bytes
+  1657 ;; Hardware stack levels used:    1
+  1658 ;; Hardware stack levels required when called:    1
+  1659 ;; This function calls:
+  1660 ;;		Nothing
+  1661 ;; This function is called by:
+  1662 ;;		_main
+  1663 ;; This function uses a non-reentrant model
+  1664 ;;
+  1665  02E8                     _setState:	
+  1666                           
+  1667                           ; Regs used in _setState: [wreg+status,2]
+  1668                           ;setState@stt stored from wreg
+  1669  02E8  00F4               	movwf	setState@stt
+  1670                           
+  1671                           ;smartkey.C: 212: mtOldState = mtState;
+  1672  02E9  1283               	bcf	3,5	;RP0=0, select bank0
+  1673  02EA  082A               	movf	_mtState,w
+  1674  02EB  00A9               	movwf	_mtOldState
+  1675                           
+  1676                           ;smartkey.C: 213: mtState = stt;
+  1677  02EC  0874               	movf	setState@stt,w
+  1678  02ED  00AA               	movwf	_mtState
+  1679                           
+  1680                           ;smartkey.C: 214: timeTick =0;
+  1681  02EE  01F9               	clrf	_timeTick
+  1682  02EF  01FA               	clrf	_timeTick+1
+  1683                           
+  1684                           ;smartkey.C: 215: timeOut = _tOut;
+  1685  02F0  0873               	movf	setState@_tOut+1,w
+  1686  02F1  00A3               	movwf	_timeOut+1
+  1687  02F2  0872               	movf	setState@_tOut,w
+  1688  02F3  00A2               	movwf	_timeOut
+  1689  02F4  0008               	return
+  1690  02F5                     __end_of_setState:	
+  1691                           
+  1692                           	psect	text463
+  1693  0278                     __ptext463:	
+  1694 ;; =============== function _setState ends ============
+  1695                           
+  1696                           
+  1697 ;; *************** function _WRITE_EEPROM *****************
+  1698 ;; Defined at:
+  1699 ;;		line 196 in file "smartkey.C"
+  1700 ;; Parameters:    Size  Location     Type
+  1701 ;;  EEAddr          1    wreg     unsigned char 
+  1702 ;;  EEData          1    2[COMMON] unsigned char 
+  1703 ;; Auto vars:     Size  Location     Type
+  1704 ;;  EEAddr          1    3[COMMON] unsigned char 
+  1705 ;; Return value:  Size  Location     Type
+  1706 ;;		None               void
+  1707 ;; Registers used:
+  1708 ;;		wreg
+  1709 ;; Tracked objects:
+  1710 ;;		On entry : 40/0
+  1711 ;;		On exit  : 60/20
+  1712 ;;		Unchanged: FFE00/0
+  1713 ;; Data sizes:     COMMON   BANK0   BANK1
+  1714 ;;      Params:         1       0       0
+  1715 ;;      Locals:         1       0       0
+  1716 ;;      Temps:          0       0       0
+  1717 ;;      Totals:         2       0       0
+  1718 ;;Total ram usage:        2 bytes
+  1719 ;; Hardware stack levels used:    1
+  1720 ;; Hardware stack levels required when called:    1
+  1721 ;; This function calls:
+  1722 ;;		Nothing
+  1723 ;; This function is called by:
+  1724 ;;		_main
+  1725 ;; This function uses a non-reentrant model
+  1726 ;;
+  1727  0278                     _WRITE_EEPROM:	
+  1728                           
+  1729                           ; Regs used in _WRITE_EEPROM: [wreg]
+  1730                           ;WRITE_EEPROM@EEAddr stored from wreg
+  1731  0278  00F3               	movwf	WRITE_EEPROM@EEAddr
+  1732                           
+  1733                           ;smartkey.C: 197: GIE = 0;
+  1734  0279  138B               	bcf	11,7
+  1735  027A                     l722:	
+  1736                           ;smartkey.C: 198: while(GIE) asm("clrwdt");
+  1737                           
+  1738  027A  1F8B               	btfss	11,7
+  1739  027B  2A7E               	goto	l3708
+  1740  027C  0064               	clrwdt	;#
+  1741  027D  2A7A               	goto	l722
+  1742  027E                     l3708:	
+  1743                           
+  1744                           ;smartkey.C: 199: EEADR = EEAddr;
+  1745  027E  0873               	movf	WRITE_EEPROM@EEAddr,w
+  1746  027F  1683               	bsf	3,5	;RP0=1, select bank1
+  1747  0280  1303               	bcf	3,6	;RP1=0, select bank1
+  1748  0281  009B               	movwf	27	;volatile
+  1749                           
+  1750                           ;smartkey.C: 200: EEDAT = EEData;
+  1751  0282  0872               	movf	WRITE_EEPROM@EEData,w
+  1752  0283  009A               	movwf	26	;volatile
+  1753  0284  3034               	movlw	52
+  1754                           
+  1755                           ;smartkey.C: 201: EEIF = 0;
+  1756  0285  1283               	bcf	3,5	;RP0=0, select bank0
+  1757  0286  138C               	bcf	12,7
+  1758                           
+  1759                           ;smartkey.C: 202: EECON1 = 0x34;
+  1760  0287  1683               	bsf	3,5	;RP0=1, select bank1
+  1761  0288  009C               	movwf	28	;volatile
+  1762                           
+  1763                           ;smartkey.C: 203: WR = 1;
+  1764  0289  141D               	bsf	29,0
+  1765  028A                     l725:	
+  1766                           ;smartkey.C: 204: while(WR) asm("clrwdt");
+  1767                           
+  1768  028A  1683               	bsf	3,5	;RP0=1, select bank1
+  1769  028B  1303               	bcf	3,6	;RP1=0, select bank1
+  1770  028C  1C1D               	btfss	29,0
+  1771  028D  2A90               	goto	l727
+  1772  028E  0064               	clrwdt	;#
+  1773  028F  2A8A               	goto	l725
+  1774  0290                     l727:	
+  1775                           
+  1776                           ;smartkey.C: 206: GIE = 1;
+  1777  0290  178B               	bsf	11,7
+  1778  0291  0008               	return
+  1779  0292                     __end_of_WRITE_EEPROM:	
+  1780                           
+  1781                           	psect	text464
+  1782  02FF                     __ptext464:	
+  1783 ;; =============== function _WRITE_EEPROM ends ============
+  1784                           
+  1785                           
+  1786 ;; *************** function _READ_EEPROM *****************
+  1787 ;; Defined at:
+  1788 ;;		line 185 in file "smartkey.C"
+  1789 ;; Parameters:    Size  Location     Type
+  1790 ;;  EEAddr          1    wreg     unsigned char 
+  1791 ;; Auto vars:     Size  Location     Type
+  1792 ;;  EEAddr          1    2[COMMON] unsigned char 
+  1793 ;;  ReEepromData    1    3[COMMON] unsigned char 
+  1794 ;; Return value:  Size  Location     Type
+  1795 ;;                  1    wreg      unsigned char 
+  1796 ;; Registers used:
+  1797 ;;		wreg
+  1798 ;; Tracked objects:
+  1799 ;;		On entry : 0/20
+  1800 ;;		On exit  : 60/20
+  1801 ;;		Unchanged: FFF9F/0
+  1802 ;; Data sizes:     COMMON   BANK0   BANK1
+  1803 ;;      Params:         0       0       0
+  1804 ;;      Locals:         2       0       0
+  1805 ;;      Temps:          0       0       0
+  1806 ;;      Totals:         2       0       0
+  1807 ;;Total ram usage:        2 bytes
+  1808 ;; Hardware stack levels used:    1
+  1809 ;; Hardware stack levels required when called:    1
+  1810 ;; This function calls:
+  1811 ;;		Nothing
+  1812 ;; This function is called by:
+  1813 ;;		_main
+  1814 ;; This function uses a non-reentrant model
+  1815 ;;
+  1816  02FF                     _READ_EEPROM:	
+  1817                           
+  1818                           ; Regs used in _READ_EEPROM: [wreg]
+  1819                           ;READ_EEPROM@EEAddr stored from wreg
+  1820  02FF  00F2               	movwf	READ_EEPROM@EEAddr
+  1821                           
+  1822                           ;smartkey.C: 186: unsigned char ReEepromData;
+  1823                           ;smartkey.C: 188: EEADR = EEAddr;
+  1824  0300  1683               	bsf	3,5	;RP0=1, select bank1
+  1825  0301  1303               	bcf	3,6	;RP1=0, select bank1
+  1826  0302  009B               	movwf	27	;volatile
+  1827                           
+  1828                           ;smartkey.C: 189: RD = 1;
+  1829  0303  141C               	bsf	28,0
+  1830                           
+  1831                           ;smartkey.C: 190: ReEepromData = EEDAT;
+  1832  0304  081A               	movf	26,w	;volatile
+  1833  0305  00F3               	movwf	READ_EEPROM@ReEepromData
+  1834                           
+  1835                           ;smartkey.C: 191: RD = 0;
+  1836  0306  101C               	bcf	28,0
+  1837                           
+  1838                           ;smartkey.C: 192: return ReEepromData;
+  1839  0307  0008               	return
+  1840  0308                     __end_of_READ_EEPROM:	
+  1841                           
+  1842                           	psect	text465
+  1843  030D                     __ptext465:	
+  1844 ;; =============== function _READ_EEPROM ends ============
+  1845                           
+  1846                           
+  1847 ;; *************** function _beepOn *****************
+  1848 ;; Defined at:
+  1849 ;;		line 162 in file "smartkey.C"
+  1850 ;; Parameters:    Size  Location     Type
+  1851 ;;		None
+  1852 ;; Auto vars:     Size  Location     Type
+  1853 ;;		None
+  1854 ;; Return value:  Size  Location     Type
+  1855 ;;		None               void
+  1856 ;; Registers used:
+  1857 ;;		None
+  1858 ;; Tracked objects:
+  1859 ;;		On entry : 40/20
+  1860 ;;		On exit  : 60/20
+  1861 ;;		Unchanged: FFF9F/0
+  1862 ;; Data sizes:     COMMON   BANK0   BANK1
+  1863 ;;      Params:         0       0       0
+  1864 ;;      Locals:         0       0       0
+  1865 ;;      Temps:          0       0       0
+  1866 ;;      Totals:         0       0       0
+  1867 ;;Total ram usage:        0 bytes
+  1868 ;; Hardware stack levels used:    1
+  1869 ;; Hardware stack levels required when called:    1
+  1870 ;; This function calls:
+  1871 ;;		Nothing
+  1872 ;; This function is called by:
+  1873 ;;		_main
+  1874 ;; This function uses a non-reentrant model
+  1875 ;;
+  1876  030D                     _beepOn:	
+  1877                           
+  1878                           ;smartkey.C: 163: TMR2ON = 1;
+  1879                           
+  1880                           ; Regs used in _beepOn: []
+  1881  030D  1283               	bcf	3,5	;RP0=0, select bank0
+  1882  030E  1512               	bsf	18,2
+  1883                           
+  1884                           ;smartkey.C: 164: TRISA &= 0xef;
+  1885  030F  1683               	bsf	3,5	;RP0=1, select bank1
+  1886  0310  1205               	bcf	5,4	;volatile
+  1887  0311  0008               	return
+  1888  0312                     __end_of_beepOn:	
+  1889                           
+  1890                           	psect	text466
+  1891  0312                     __ptext466:	
+  1892 ;; =============== function _beepOn ends ============
+  1893                           
+  1894                           
+  1895 ;; *************** function _beepOff *****************
+  1896 ;; Defined at:
+  1897 ;;		line 159 in file "smartkey.C"
+  1898 ;; Parameters:    Size  Location     Type
+  1899 ;;		None
+  1900 ;; Auto vars:     Size  Location     Type
+  1901 ;;		None
+  1902 ;; Return value:  Size  Location     Type
+  1903 ;;		None               void
+  1904 ;; Registers used:
+  1905 ;;		None
+  1906 ;; Tracked objects:
+  1907 ;;		On entry : 60/0
+  1908 ;;		On exit  : 60/20
+  1909 ;;		Unchanged: FFF9F/0
+  1910 ;; Data sizes:     COMMON   BANK0   BANK1
+  1911 ;;      Params:         0       0       0
+  1912 ;;      Locals:         0       0       0
+  1913 ;;      Temps:          0       0       0
+  1914 ;;      Totals:         0       0       0
+  1915 ;;Total ram usage:        0 bytes
+  1916 ;; Hardware stack levels used:    1
+  1917 ;; Hardware stack levels required when called:    1
+  1918 ;; This function calls:
+  1919 ;;		Nothing
+  1920 ;; This function is called by:
+  1921 ;;		_main
+  1922 ;; This function uses a non-reentrant model
+  1923 ;;
+  1924  0312                     _beepOff:	
+  1925                           
+  1926                           ;smartkey.C: 160: TMR2ON = 0;RA4 =0;TRISA |= 0x10;
+  1927                           
+  1928                           ; Regs used in _beepOff: []
+  1929  0312  1112               	bcf	18,2
+  1930  0313  1205               	bcf	5,4
+  1931  0314  1683               	bsf	3,5	;RP0=1, select bank1
+  1932  0315  1605               	bsf	5,4	;volatile
+  1933  0316  0008               	return
+  1934  0317                     __end_of_beepOff:	
+  1935                           
+  1936                           	psect	text467
+  1937  02A8                     __ptext467:	
+  1938 ;; =============== function _beepOff ends ============
+  1939                           
+  1940                           
+  1941 ;; *************** function _delay_x10ms *****************
+  1942 ;; Defined at:
+  1943 ;;		line 154 in file "smartkey.C"
+  1944 ;; Parameters:    Size  Location     Type
+  1945 ;;  t               2    2[COMMON] unsigned int 
+  1946 ;; Auto vars:     Size  Location     Type
+  1947 ;;  set             2    4[COMMON] unsigned int 
+  1948 ;; Return value:  Size  Location     Type
+  1949 ;;		None               void
+  1950 ;; Registers used:
+  1951 ;;		wreg
+  1952 ;; Tracked objects:
+  1953 ;;		On entry : 40/20
+  1954 ;;		On exit  : 40/20
+  1955 ;;		Unchanged: FFFBF/0
+  1956 ;; Data sizes:     COMMON   BANK0   BANK1
+  1957 ;;      Params:         2       0       0
+  1958 ;;      Locals:         2       0       0
+  1959 ;;      Temps:          0       0       0
+  1960 ;;      Totals:         4       0       0
+  1961 ;;Total ram usage:        4 bytes
+  1962 ;; Hardware stack levels used:    1
+  1963 ;; Hardware stack levels required when called:    1
+  1964 ;; This function calls:
+  1965 ;;		Nothing
+  1966 ;; This function is called by:
+  1967 ;;		_beep
+  1968 ;;		_main
+  1969 ;; This function uses a non-reentrant model
+  1970 ;;
+  1971  02A8                     _delay_x10ms:	
+  1972                           
+  1973                           ;smartkey.C: 155: unsigned int set = t + timeTick;
+  1974                           
+  1975                           ; Regs used in _delay_x10ms: [wreg]
+  1976  02A8  0873               	movf	delay_x10ms@t+1,w
+  1977  02A9  00F5               	movwf	delay_x10ms@set+1
+  1978  02AA  0872               	movf	delay_x10ms@t,w
+  1979  02AB  00F4               	movwf	delay_x10ms@set
+  1980  02AC  0879               	movf	_timeTick,w
+  1981  02AD  07F4               	addwf	delay_x10ms@set,f
+  1982  02AE  1803               	skipnc
+  1983  02AF  0AF5               	incf	delay_x10ms@set+1,f
+  1984  02B0  087A               	movf	_timeTick+1,w
+  1985  02B1  07F5               	addwf	delay_x10ms@set+1,f
+  1986  02B2                     l3692:	
+  1987                           ;smartkey.C: 156: while(timeTick < set);
+  1988                           
+  1989  02B2  0875               	movf	delay_x10ms@set+1,w
+  1990  02B3  027A               	subwf	_timeTick+1,w
+  1991  02B4  1D03               	skipz
+  1992  02B5  2AB8               	goto	u775
+  1993  02B6  0874               	movf	delay_x10ms@set,w
+  1994  02B7  0279               	subwf	_timeTick,w
+  1995  02B8                     u775:	
+  1996  02B8  1803               	btfsc	3,0
+  1997  02B9  0008               	return
+  1998  02BA  2AB2               	goto	l3692
+  1999  02BB                     __end_of_delay_x10ms:	
+  2000                           
+  2001                           	psect	text468
+  2002  01E9                     __ptext468:	
+  2003 ;; =============== function _delay_x10ms ends ============
+  2004                           
+  2005                           
+  2006 ;; *************** function _ISR *****************
+  2007 ;; Defined at:
+  2008 ;;		line 45 in file "smartkey.C"
+  2009 ;; Parameters:    Size  Location     Type
+  2010 ;;		None
+  2011 ;; Auto vars:     Size  Location     Type
+  2012 ;;  tmp             1    0        unsigned char 
+  2013 ;; Return value:  Size  Location     Type
+  2014 ;;		None               void
+  2015 ;; Registers used:
+  2016 ;;		wreg, status,2, status,0
+  2017 ;; Tracked objects:
+  2018 ;;		On entry : 0/0
+  2019 ;;		On exit  : 40/0
+  2020 ;;		Unchanged: FFF9F/0
+  2021 ;; Data sizes:     COMMON   BANK0   BANK1
+  2022 ;;      Params:         0       0       0
+  2023 ;;      Locals:         0       0       0
+  2024 ;;      Temps:          2       0       0
+  2025 ;;      Totals:         2       0       0
+  2026 ;;Total ram usage:        2 bytes
+  2027 ;; Hardware stack levels used:    1
+  2028 ;; This function calls:
+  2029 ;;		Nothing
+  2030 ;; This function is called by:
+  2031 ;;		Interrupt level 1
+  2032 ;; This function uses a non-reentrant model
+  2033 ;;
+  2034  01E9                     _ISR:	
+  2035                           
+  2036                           ;smartkey.C: 49: if(PAIE&&PAIF){
+  2037  01E9  198B               	btfsc	11,3
+  2038  01EA  1C0B               	btfss	11,0
+  2039  01EB  29FB               	goto	i1l3638
+  2040                           
+  2041                           ;smartkey.C: 52: tmp = PORTA;
+  2042  01EC  1283               	bcf	3,5	;RP0=0, select bank0
+  2043  01ED  1303               	bcf	3,6	;RP1=0, select bank0
+  2044  01EE  0805               	movf	5,w	;volatile
+  2045                           
+  2046                           ;smartkey.C: 53: PAIF = 0;
+  2047  01EF  100B               	bcf	11,0
+  2048                           
+  2049                           ;smartkey.C: 55: if(RA6){
+  2050  01F0  1F05               	btfss	5,6
+  2051  01F1  29FA               	goto	i1l3636
+  2052                           
+  2053                           ;smartkey.C: 57: if(mode_chek == 0){
+  2054  01F2  08A8               	movf	_mode_chek,f
+  2055  01F3  1D03               	skipz
+  2056  01F4  29FB               	goto	i1l3638
+  2057                           
+  2058                           ;smartkey.C: 58: cntCyc = 0;
+  2059  01F5  01A5               	clrf	_cntCyc
+  2060                           
+  2061                           ;smartkey.C: 59: cntOff = 0;
+  2062  01F6  01A6               	clrf	_cntOff
+  2063                           
+  2064                           ;smartkey.C: 61: mode_chek = 1;
+  2065  01F7  01A8               	clrf	_mode_chek
+  2066  01F8  0AA8               	incf	_mode_chek,f
+  2067  01F9  29FB               	goto	i1l3638
+  2068  01FA                     i1l3636:	
+  2069                           
+  2070                           ;smartkey.C: 66: else{
+  2071                           ;smartkey.C: 67: cntOff = 0;
+  2072  01FA  01A6               	clrf	_cntOff
+  2073  01FB                     i1l3638:	
+  2074                           
+  2075                           ;smartkey.C: 70: }
+  2076                           ;smartkey.C: 72: }
+  2077                           ;smartkey.C: 78: if(TMR1IE&&TMR1IF){
+  2078  01FB  1683               	bsf	3,5	;RP0=1, select bank1
+  2079  01FC  1303               	bcf	3,6	;RP1=0, select bank1
+  2080  01FD  1C0C               	btfss	12,0
+  2081  01FE  2A4D               	goto	i1l3682
+  2082  01FF  1283               	bcf	3,5	;RP0=0, select bank0
+  2083  0200  1C0C               	btfss	12,0
+  2084  0201  2A4D               	goto	i1l3682
+  2085  0202  30EC               	movlw	236
+  2086                           
+  2087                           ;smartkey.C: 80: TMR1IF = 0;
+  2088  0203  100C               	bcf	12,0
+  2089                           
+  2090                           ;smartkey.C: 82: TMR1H = -5000>>8;
+  2091  0204  008F               	movwf	15	;volatile
+  2092                           
+  2093                           ;smartkey.C: 83: TMR1L = -5000;
+  2094  0205  3078               	movlw	120
+  2095  0206  008E               	movwf	14	;volatile
+  2096                           
+  2097                           ;smartkey.C: 89: if( mode_chek == 1){
+  2098  0207  0B28               	decfsz	_mode_chek,w
+  2099  0208  2A21               	goto	i1l3666
+  2100                           
+  2101                           ;smartkey.C: 91: cntCyc++;
+  2102  0209  0AA5               	incf	_cntCyc,f
+  2103                           
+  2104                           ;smartkey.C: 93: if(RA6==0){
+  2105  020A  1B05               	btfsc	5,6
+  2106  020B  2A21               	goto	i1l3666
+  2107  020C  3010               	movlw	16
+  2108                           
+  2109                           ;smartkey.C: 95: cntOff++;
+  2110  020D  0AA6               	incf	_cntOff,f
+  2111                           
+  2112                           ;smartkey.C: 98: if(cntOff > 15){
+  2113  020E  0226               	subwf	_cntOff,w
+  2114  020F  1C03               	skipc
+  2115  0210  2A21               	goto	i1l3666
+  2116  0211  3010               	movlw	16
+  2117                           
+  2118                           ;smartkey.C: 100: mode_chek = 0;
+  2119  0212  01A8               	clrf	_mode_chek
+  2120                           
+  2121                           ;smartkey.C: 102: if((cntCyc>15) &&(cntCyc<50)) {
+  2122  0213  0225               	subwf	_cntCyc,w
+  2123  0214  3032               	movlw	50
+  2124  0215  1C03               	skipc
+  2125  0216  2A1D               	goto	L5
+  2126  0217  0225               	subwf	_cntCyc,w
+  2127  0218  1803               	skipnc
+  2128  0219  2A1C               	goto	i1l3662
+  2129                           
+  2130                           ;smartkey.C: 103: RegStatus |= (0x40);
+  2131  021A  1724               	bsf	_RegStatus,6
+  2132                           
+  2133                           ;smartkey.C: 104: } else if (cntCyc>=50){
+  2134  021B  2A20               	goto	i1l688
+  2135  021C                     i1l3662:	
+  2136  021C  3032               	movlw	50
+  2137  021D                     L5:	
+  2138  021D  0225               	subwf	_cntCyc,w
+  2139  021E  1803               	btfsc	3,0
+  2140                           
+  2141                           ;smartkey.C: 105: RegStatus &= ~(0x40);
+  2142  021F  1324               	bcf	_RegStatus,6
+  2143  0220                     i1l688:	
+  2144                           
+  2145                           ;smartkey.C: 106: }
+  2146                           ;smartkey.C: 109: RegStatus |= 0x80;
+  2147  0220  17A4               	bsf	_RegStatus,7
+  2148  0221                     i1l3666:	
+  2149                           
+  2150                           ;smartkey.C: 110: }
+  2151                           ;smartkey.C: 112: }
+  2152                           ;smartkey.C: 122: }
+  2153                           ;smartkey.C: 125: timeTick++;
+  2154  0221  0AF9               	incf	_timeTick,f
+  2155  0222  1903               	skipnz
+  2156  0223  0AFA               	incf	_timeTick+1,f
+  2157                           
+  2158                           ;smartkey.C: 127: if((mtState == 4)||(mtState == 3)){
+  2159  0224  082A               	movf	_mtState,w
+  2160  0225  3A04               	xorlw	4
+  2161  0226  1903               	skipnz
+  2162  0227  2A2C               	goto	i1l3672
+  2163  0228  082A               	movf	_mtState,w
+  2164  0229  3A03               	xorlw	3
+  2165  022A  1D03               	skipz
+  2166  022B  2A4D               	goto	i1l3682
+  2167  022C                     i1l3672:	
+  2168                           
+  2169                           ;smartkey.C: 129: if(timeTick > cntTmp){
+  2170  022C  087A               	movf	_timeTick+1,w
+  2171  022D  0221               	subwf	_cntTmp+1,w
+  2172  022E  1D03               	skipz
+  2173  022F  2A32               	goto	u72_25
+  2174  0230  0879               	movf	_timeTick,w
+  2175  0231  0220               	subwf	_cntTmp,w
+  2176  0232                     u72_25:	
+  2177  0232  1803               	skipnc
+  2178  0233  2A4D               	goto	i1l3682
+  2179                           
+  2180                           ;smartkey.C: 130: cntTmp = timeTick+40;
+  2181  0234  087A               	movf	_timeTick+1,w
+  2182  0235  00A1               	movwf	_cntTmp+1
+  2183  0236  0879               	movf	_timeTick,w
+  2184  0237  00A0               	movwf	_cntTmp
+  2185  0238  3028               	movlw	40
+  2186  0239  07A0               	addwf	_cntTmp,f
+  2187  023A  1803               	skipnc
+  2188  023B  0AA1               	incf	_cntTmp+1,f
+  2189                           
+  2190                           ;smartkey.C: 131: if(cntTmp<=timeOut)
+  2191  023C  0821               	movf	_cntTmp+1,w
+  2192  023D  0223               	subwf	_timeOut+1,w
+  2193  023E  1D03               	skipz
+  2194  023F  2A42               	goto	u73_25
+  2195  0240  0820               	movf	_cntTmp,w
+  2196  0241  0222               	subwf	_timeOut,w
+  2197  0242                     u73_25:	
+  2198                           
+  2199                           ;smartkey.C: 132: {
+  2200                           ;smartkey.C: 133: if(PR2 == 11)
+  2201  0242  1683               	bsf	3,5	;RP0=1, select bank1
+  2202  0243  1C03               	skipc
+  2203  0244  2A4E               	goto	L6
+  2204  0245  0812               	movf	18,w	;volatile
+  2205  0246  3A0B               	xorlw	11
+  2206  0247  1D03               	skipz
+  2207  0248  2A4B               	goto	i1l3680
+  2208                           
+  2209                           ;smartkey.C: 134: PR2 = 30;
+  2210  0249  301E               	movlw	30
+  2211  024A  2A4C               	goto	L4
+  2212  024B                     i1l3680:	
+  2213                           
+  2214                           ;smartkey.C: 135: else
+  2215                           ;smartkey.C: 136: PR2 = 11;
+  2216  024B  300B               	movlw	11
+  2217  024C                     L4:	
+  2218  024C  0092               	movwf	18	;volatile
+  2219  024D                     i1l3682:	
+  2220                           
+  2221                           ;smartkey.C: 137: }
+  2222                           ;smartkey.C: 138: }
+  2223                           ;smartkey.C: 139: }
+  2224                           ;smartkey.C: 142: }
+  2225                           ;smartkey.C: 145: if(TMR2IE&&TMR2IF)
+  2226  024D  1683               	bsf	3,5	;RP0=1, select bank1
+  2227  024E                     L6:	
+  2228  024E  1C8C               	btfss	12,1
+  2229  024F  2A56               	goto	i1l698
+  2230  0250  1283               	bcf	3,5	;RP0=0, select bank0
+  2231  0251  1C8C               	btfss	12,1
+  2232  0252  2A56               	goto	i1l698
+  2233  0253  3010               	movlw	16
+  2234                           
+  2235                           ;smartkey.C: 146: {
+  2236                           ;smartkey.C: 147: TMR2IF = 0;
+  2237  0254  108C               	bcf	12,1
+  2238                           
+  2239                           ;smartkey.C: 148: RA4 =~ RA4;
+  2240  0255  0685               	xorwf	5,f
+  2241  0256                     i1l698:	
+  2242  0256  0871               	movf	??_ISR+1,w
+  2243  0257  008A               	movwf	10
+  2244  0258  0E70               	swapf	??_ISR^(0+-128),w
+  2245  0259  0083               	movwf	3
+  2246  025A  0EFE               	swapf	126,f
+  2247  025B  0E7E               	swapf	126,w
+  2248  025C  0009               	retfie
+  2249  025D                     __end_of_ISR:	
+  2250                           
+  2251                           	psect	intentry
+  2252  0004                     __pintentry:	
+  2253                           ; Regs used in _ISR: [wreg+status,2+status,0]
+  2254                           
+  2255  0004                     interrupt_function:	
+  2256  007E                     saved_w	set	btemp
+  2257  0004  00FE               	movwf	btemp
+  2258  0005  0E03               	swapf	3,w
+  2259  0006  00F0               	movwf	??_ISR
+  2260  0007  080A               	movf	10,w
+  2261  0008  00F1               	movwf	??_ISR+1
+  2262  0009  29E9               	ljmp	_ISR
+  2263                           
+  2264                           	psect	text469
+  2265  0000                     __ptext469:	
+  2266 ;; =============== function _ISR ends ============
+  2267                           
+  2268  007E                     btemp	set	126	;btemp
+  2269  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sat Dec 21 09:30:06 2019
+
+                      pc 0002                       _RD 04E0                       _WR 04E8  
+  __size_of_WRITE_EEPROM 001A                       fsr 0004                      l710 0000  
+                    l704 0000                      l722 027A                      l707 0000  
+                    l731 0000                      l716 0000                      l725 028A  
+                    l719 0000                      l727 0290                      l728 0000  
+                    l752 00AF                      l761 012E                      l770 01A1  
+                    l764 0111                      l765 00FC                      l792 01E6  
+                    _GIE 005F                      _RA0 0028                      _RA4 002C  
+                    _RC1 0039                      _RC2 003A                      _RA6 002E  
+                    _RA7 002F                      _RC4 003C                      _PR2 0092  
+                    _HTS 047A                      _ISR 01E9                      _SR0 0CF6  
+                    _SR1 0CF7                      u775 02B8                     S4350 0308  
+                   ?_ISR 0070                     l1450 0000                     l4100 0000  
+                   l1453 0000                     l4110 0000                     l1447 02FA  
+                   l1456 0000                     l4200 0113                     l4112 0000  
+                   l4120 006B                     l4104 0000                     l4210 0000  
+                   l4202 0116                     l4122 0000                     l4114 0000  
+                   l1459 0000                     l4300 01D4                     l4204 0000  
+                   l4140 0000                     l4124 0072                     l4116 0000  
+                   l4302 0000                     l4310 01E1                     l4230 0146  
+                   l4206 0000                     l4150 0000                     l4134 0085  
+                   l4126 007C                     l4118 0000                     l4070 0000  
+                   l4240 0000                     l4232 0000                     l4224 013C  
+                   l4208 0000                     l4160 00BB                     l4144 0097  
+                   l4136 0086                     l4216 0126                     l4080 0000  
+                   l4072 0000                     l4306 0000                     l4250 0000  
+                   l4242 0000                     l4234 0000                     l4226 0000  
+                   l4170 0000                     l4162 0000                     l4154 00A8  
+                   l4218 012F                     l4090 0000                     l4082 0000  
+                   l4074 0000                     l3700 0000                     l4308 01DF  
+                   l4252 0000                     l4244 0158                     l4236 0000  
+                   l4228 0000                     l4156 0000                     l4148 0000  
+                   l4092 0000                     l4084 0000                     l4076 0000  
+                   l3702 0000                     l3710 0000                     l4270 0000  
+                   l4262 0000                     l4254 0000                     l4238 0000  
+                   l4174 00CE                     l4166 00BE                     l4158 0000  
+                   l4182 00DF                     l4094 0000                     l4086 0000  
+                   l4078 0000                     l3712 0000                     l3720 0000  
+                   l4280 0000                     l4272 0000                     l4264 0186  
+                   l4256 0000                     l4248 0160                     l4192 0000  
+                   l4184 00EA                     l4176 00D7                     l4096 0000  
+                   l4088 0000                     l3706 0000                     l3714 0000  
+                   l3722 0000                     l3730 0000                     l4290 0000  
+                   l4282 01A8                     l4266 0000                     l4258 0176  
+                   l4194 0000                     l4186 0000                     l4178 0000  
+                   l4098 0000                     l3708 027E                     l3716 0000  
+                   l3724 0000                     l3740 0000                     l3732 0000  
+                   l4292 0000                     l4268 0000                     l4276 0193  
+                   l4196 0000                     l3718 0000                     l3726 0000  
+                   l3734 0000                     l3750 0000                     l3742 0000  
+                   l4294 0000                     l4198 0000                     l3728 0000  
+                   l3736 0000                     l3760 0000                     l3752 0000  
+                   l3744 0000                     l4288 0000                     l4296 01D0  
+                   l3690 0000                     l3738 0000                     l3770 0000  
+                   l3762 0000                     l3754 0000                     l3746 0000  
+                   l4298 01B2                     l3692 02B2                     l3764 0000  
+                   l3756 0000                     l3748 0000                     l3780 0000  
+                   l3772 0000                     l3694 0000                     l3766 0000  
+                   l3758 0000                     l3782 0000                     l3774 0000  
+                   l3696 0000                     l3768 0000                     l3776 0000  
+                   l3784 0293                     l3698 0000                     l3778 0000  
+                   l3786 0000                     l3788 0000                     _EEIF 0067  
+                   u1170 0079                     u1507 004A                     u1517 01C9  
+                   u1375 0139                     _PAIE 005B                     _PAIF 0058  
+                   u1487 0018                     _PIE1 008C                     u1497 0024  
+                   _PEIE 005E                     _INTE 005C                     _INTF 0059  
+                   _PIR1 000C                     _TMR2 0011                     _STRA 0CE8  
+                   _STRB 0CE9                     _STRC 0CEA                     _STRD 0CEB  
+                   _WREN 0C62                     _WPUA 0095                     _WPUC 0088  
+           ?_READ_EEPROM 0070                     _beep 0292                     _main 000B  
+                   btemp 007E                     start 000A             _WRITE_EEPROM 0278  
+                  ??_ISR 0070                    ?_beep 0076                    _C1SEN 0CF5  
+                  _C2REN 0CF4                    ?_main 0070                    _EEADR 009B  
+                  _EEDAT 009A                    _EEPGD 0C67                    _T1CON 0010  
+                  _T2CON 0012                    _IOCA6 04B6                    i1l688 0220  
+                  i1l698 0256          __end_of_beepOff 0317                    _TMR1H 000F  
+                  _TMR1L 000E                    _PORTA 0005                    _PORTC 0007  
+                  _SRCON 019E                    _PULSR 0CF2                    _PULSS 0CF3  
+                  u72_25 0232                    _TRISA 0085                    u73_25 0242  
+                  _TRISC 0087                    pclath 000A                    status 0003  
+                  wtemp0 007E     __size_of_delay_x10ms 0013             __end_of_beep 02A8  
+           __end_of_main 01E9                   ??_beep 0077                   ??_main 002B  
+          main@reAlertOn 0078                   _EECON1 009C                   i1l3620 0000  
+                 i1l3634 0000                   i1l3626 0000                   i1l3652 0000  
+                 i1l3644 0000                   i1l3636 01FA                   i1l3628 0000  
+                 i1l3662 021C                   i1l3646 0000                   i1l3638 01FB  
+                 i1l3680 024B                   i1l3672 022C                   i1l3656 0000  
+                 i1l3648 0000                   i1l3666 0221                   i1l3682 024D  
+                 i1l3668 0000                   i1l3688 0000                   _INTEDG 040E  
+                 _INTCON 000B                   _OSCCON 008F                   _TMR1IE 0460  
+                 _TMR1IF 0060                   _TMR2IE 0461                   _TMR2IF 0061  
+                 _TMR1ON 0080                   _TMR2ON 0092                   _beepOn 030D  
+                 _cntCyc 0025                   _cntOff 0026                   _cntTmp 0020  
+              ??_beepOff 0072         __end_of_int_init 0278         __end_of_setState 02F5  
+                 saved_w 007E         __end_of_sys_init 02FF     __size_of_READ_EEPROM 0009  
+         __pcstackCOMMON 0070               __pbssBANK0 0020       __size_of_gpio_init 000F  
+READ_EEPROM@ReEepromData 0073               __pmaintext 000B                  ?_beepOn 0070  
+             __pintentry 0004                  _PSTRCON 019D                  _STRSYNC 0CEC  
+              ?_int_init 0070              setState@stt 0074                ?_setState 0072  
+             _mtOldState 0029          __size_of_beepOn 0005                  _beepOff 0312  
+                beep@rep 0076        __end_of_gpio_init 02E8                ?_sys_init 0070  
+           __size_of_ISR 0074                  _mtState 002A                  _timeOut 0022  
+   end_of_initialization 02C8               _lostDetect 0027            ??_delay_x10ms 0074  
+             ??_int_init 0072               ??_setState 0074               _timer_init 02CA  
+             ??_sys_init 0072       WRITE_EEPROM@EEAddr 0073       WRITE_EEPROM@EEData 0072  
+    __end_of_delay_x10ms 02BB           __end_of_beepOn 0312      start_initialization 02BB  
+            __end_of_ISR 025D            setState@_tOut 0072                _RegStatus 0024  
+          ??_READ_EEPROM 0072            ?_WRITE_EEPROM 0072                 ??_beepOn 0072  
+      READ_EEPROM@EEAddr 0072              ?_timer_init 0070              __pbssCOMMON 0079  
+          __pcstackBANK0 002B              _delay_x10ms 02A8           ??_WRITE_EEPROM 0073  
+      __size_of_int_init 001B      __end_of_READ_EEPROM 0308        __size_of_setState 000D  
+              __ptext460 02CA                __ptext461 02D9                __ptext462 02E8  
+              __ptext463 0278                __ptext464 02FF                __ptext456 0000  
+              __ptext465 030D                __ptext457 02F5                __ptext466 0312  
+              __ptext458 0292                __ptext467 02A8                __ptext459 025D  
+              __ptext468 01E9                __ptext469 0000                beep@delay 0077  
+               ?_beepOff 0070                __pswtext1 0308        __size_of_sys_init 000A  
+              _gpio_init 02D9                _mode_chek 0028        interrupt_function 0004  
+    __size_of_timer_init 000F             delay_x10ms@t 0072               ?_gpio_init 0070  
+            _READ_EEPROM 02FF         __size_of_beepOff 0005     __end_of_WRITE_EEPROM 0292  
+          __size_of_beep 0016            __size_of_main 01DE                 _int_init 025D  
+               _setState 02E8                 _timeTick 0079             ??_timer_init 0072  
+               _sys_init 02F5              ??_gpio_init 0072                 intlevel1 0000  
+           ?_delay_x10ms 0072       __end_of_timer_init 02D9           delay_x10ms@set 0074  
