@@ -2,7 +2,7 @@
 #define main_h
 
 #include	"SYSCFG.h";
-#include 	"MS82Fxx02.h";
+#include 	"MS86Fxx02.h";
 #include	"SWUART.h";
 
 
@@ -21,15 +21,15 @@
 
 // GPIO
 #define swMainOut		RC4
-#define swMainIn		RC3
-#define swMainOut2		RC2
+#define swMainIn		RA4
+#define swMainOut2		RC5
 
 #define swStand		RC1 //RC2
 
 //#define swStartIn		RC1
 #define swStartOut		RC0
 
-#define buzzer			RA4
+#define buzzer			RA5
 #define keyDetect		RA6
 #define enaDetect		RA7
 

@@ -25,10 +25,10 @@ unsigned char RegStatus = 0;
 //===========================================================
 
 /*
-V1: Ðo mu'c 16ms < H < 80ms  và L > 130ms - trong truong hop khong co nhieu
+V1: �o mu'c 16ms < H < 80ms  v� L > 130ms - trong truong hop khong co nhieu
 Phat hien suon len trong trang thai nghi-> start-> do muc H
 Doi suon xuong, do muc L
-V2: Ðo độ rộng mức L kết hợp với suon len dau tien 
+V2: �o d? r?ng m?c L k?t h?p v?i suon len dau tien 
 
 
 T + N_____||||||__________________
@@ -74,13 +74,10 @@ tmp = PORTA;		//
 //====================
 
 //====================
-// Timer1 Interrup 
-	if(TMR1IE&&TMR1IF){
-        
-        TMR1IF = 0;
-        // init timer
-    	TMR1H = _Timer1>>8;
-		TMR1L = _Timer1;
+//Timer0 Interrup 
+ if(T0IE&&T0IF){
+     T0IF = 0;
+	 TMR0 = 179;
         
         // time out 10ms
         // 'Verify' : 20ms <'0'< 50ms -> 'F' -> 'Busy' -> 'IDE'
@@ -130,10 +127,10 @@ tmp = PORTA;		//
 	            cntTmp = timeTick+40;
 	            if(cntTmp<=timeOut)
 				{
-					if(PR2 == 11)
-						PR2 = 30; 
+					if(PR2L == 11)
+						PR2L = 30; 
 					else
-						PR2 = 11;
+						PR2L = 11;
 				}
             }
 		}
@@ -157,11 +154,11 @@ unsigned int set = t + timeTick;
 }
 
 void beepOff(){
-    TMR2ON = 0;buzzer =0;TRISA |= 0x10;
+    TMR2ON = 0;buzzer =0;TRISA |= 0x20;
 }
 void beepOn(){
     TMR2ON = 1;
-    TRISA &= 0xef;
+    TRISA &= 0xdf;
 }
 void beep(unsigned char delay,unsigned char rep){
 
@@ -170,7 +167,7 @@ void beep(unsigned char delay,unsigned char rep){
         
 		while(rep--){
             TMR2ON = 1;
-			PR2 = 12; //12
+			PR2L = 12; //12
 			delay_x10ms(delay);
             TMR2ON = 0;buzzer =0;
             delay_x10ms(20);
@@ -218,10 +215,6 @@ void setState(unsigned char stt, unsigned int _tOut){
 void main(void)
 {
 	// clear WDT
-#asm
-	MOVLW		0x07			//
-	MOVWF		0x19			//
-#endasm
 
 unsigned char reAlertOn=0;
 
@@ -250,11 +243,9 @@ unsigned char reAlertOn=0;
     
     //RegStatus |= (bitSwMain);
 	   
-	
-    
 //================= 
-	WRITE_EEPROM(0x7F,0xAA);			//bat buoc
-	WRITE_EEPROM(0x7F,0xAA);			//bat buoc
+	WRITE_EEPROM(0xFF,0xAA);			//bat buoc
+	WRITE_EEPROM(0xFF,0xAA);			//bat buoc
  //================= 
      
     delay_x10ms(1);
@@ -266,7 +257,7 @@ unsigned char reAlertOn=0;
 		setState(_Alert,tOut_Alert);
 		mtOldState = _Open;
 		cntTmp = timeTick+50;
-		PR2 =12;
+		PR2L =12;
 		beepOn();
     } else {
 setState(_rCheck,400);// bat nguon lan dau timeOut =4s
@@ -425,7 +416,7 @@ swTx =keyDetect;
                                         
 										setState(_Alert,tOut_Alert);
 	                                    cntTmp = timeTick+40;// kiem tra lai 
-										PR2 =11;
+										PR2L =11;
 										beepOn();
 	                                    lostDetect =0;
                                     }
@@ -488,7 +479,7 @@ swTx =keyDetect;
 					if(reAlertOn){	///???reAlertOn						
 							setState(_rAlert,tOut_rAlert);
 							cntTmp = timeTick+40;
-							PR2 =11;
+							PR2L =11;
 							beepOn();
                             
                     }else if(mtOldState == _Ide){							
